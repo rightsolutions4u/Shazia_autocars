@@ -1,206 +1,39 @@
 ﻿@model IEnumerable<autocarrs.Models.AutosVehicle>
+<div >
+   <p>Shazia</p>
+    </div>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CarBdoy.BDDesc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarCategory.CgDesc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarMake.MkDesc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarModel.MdDesc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Acolor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.statNm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cityNM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZipCod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cnName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MILEAG)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sellpri)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Auyear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.transmission)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fueltype)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.power)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valume)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Engine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seater)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cosumption)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NoOfDoors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsReserved)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsFeatured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsTrendy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sellID)
-        </th>
-        <th></th>
-    </tr>*@
-
-@foreach (var item in Model) {
-   <tr>
-       <td>
-           <div class="row">
-               <div class="col-list-3">
-                   <div class="featured-car-list">
-                       <div class="featured-car-img">
-                           <a href=""><img src="assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
-                           <div class="label_icon">New</div>
-                       </div>
-                       <div class="featured-car-content">
-                           <h6><a href="#">Car Name</a></h6>
-                           <div class="price_info">
-                               <p class="featured-price">$@item.sellpri</p>
-                               <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                           </div>
-                           <ul>
-                               <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-                               <li><i class="fa fa-tachometer" aria-hidden="true"></i>@item.MILEAG miles</li>
-                               <li><i class="fa fa-calendar" aria-hidden="true"></i>@item.Auyear @item.CarModel.MdDesc</li>
-                               <li><i class="fa fa-car" aria-hidden="true"></i>@item.fueltype</li>
-                               <li><i class="fa fa-user" aria-hidden="true"></i>@item.Seater seats</li>
-                               <li><i class="fa fa-superpowers" aria-hidden="true"></i>@item.power kW</li>
-                           </ul>
-                       </div>
+    @*<table class="table" border="1">
+          <tr>
+                <td>
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                         <div class="col-list-3">
+                                <div class="featured-car-list">
+                                    <div class="featured-car-img">
+                                        <a href=""><img src="~assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
+                                        <div class="label_icon">New</div>
+                                    </div>
+                                    <div class="featured-car-content">
+                                        <h6><a href="#">Car Name</a></h6>
+                                        <div class="price_info">
+                                            <p class="featured-price">$@item.SellPri</p>
+                                            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+                                        </div>
+                                        <ul>
+                                            <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
+                                            <li><i class="fa fa-tachometer" aria-hidden="true"></i>@item.Mileag miles</li>
+                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>@item.AuYear @item.CarModel.MdDesc</li>
+                                            <li><i class="fa fa-car" aria-hidden="true"></i>@item.FuelType</li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>@item.Seater seats</li>
+                                            <li><i class="fa fa-superpowers" aria-hidden="true"></i>@item.Power kW</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                    </div>
-               </div>
-            </div>
-       </td>
-   </tr>
-    @*<tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarBdoy.BDDesc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarCategory.CgDesc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarMake.MkDesc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarModel.MdDesc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Acolor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.statNm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cityNM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cnName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MILEAG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sellpri)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Auyear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.transmission)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fueltype)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.power)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valume)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Engine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seater)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cosumption)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfDoors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSold)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsReserved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsFeatured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTrendy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sellID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AutoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AutoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AutoId })
-        </td>
-    </tr>*@
-}
-
-</table>
+            </td>
+            </tr>
+        </table>*@

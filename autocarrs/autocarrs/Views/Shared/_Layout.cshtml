@@ -110,13 +110,13 @@
                         {
                             Html.RenderPartial("Welcome");
                         }
-                        elsif (Model is autocarrs.Models.Error)
+                        else if (Model is autocarrs.Models.Error)
                         {
-                        Html.RenderPartial("Error");
+                            Html.RenderPartial("Error");
                         }
                         else
                         {
-                        Welcome;
+
                         }
                     </div>
                 </div>
@@ -743,31 +743,31 @@
                         <div class="col-md-12 col-sm-6">
                             @*<div class="form-group-brand row">*@
                             <div class="form-group col-md-3 col-sm-6">
-                                <div> <a href="#"> <img src="~assets/images/Brands/acura-logo.png"> </a></div>
+                                <div> <a href="#"> <img src="~/assets/images/Brands/acura-logo.png"> </a></div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/audi-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/bmw-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/bmw-logo.png"> </a> </div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/ferrari-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/ferrari-logo.png"> </a> </div>
                             </div> <!--for this image-->
                             @*</div>*@ <!--in one row group-->
                         </div> <!--total space for this category container-->
                         <div class="col-md-12 col-sm-6">
                             <div class="form-group col-md-3 col-sm-6">
-                                <div> <a href="#"> <img src="~assets/images/Brands/ford-logo.png"> </a></div>
+                                <div> <a href="#"> <img src="~/assets/images/Brands/ford-logo.png"> </a></div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/honda-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/honda-logo.png"> </a> </div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/hyundai-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/hyundai-logo.png"> </a> </div>
                             </div> <!--for this image-->
                             <div class="form-group col-md-3 col-sm-6 ">
-                                <div> <a href="#"><img src="~assets/images/Brands/jaguar-logo.png"> </a> </div>
+                                <div> <a href="#"><img src="~/assets/images/Brands/jaguar-logo.png"> </a> </div>
                             </div> <!--for this image-->
                         </div> <!--total space for this category container-->
 
@@ -839,7 +839,7 @@
                             <div class="recent-car-list">
                                 <div class="car-info-box">
                                     <!--<a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>-->
-                                    <a href="#"><img src="~assets/images/1.png" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/1.png" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">-->
                                     <!--<div class="checkbox">
                                         <input type="checkbox" id="compare4">
@@ -865,7 +865,7 @@
                             <div class="recent-car-list">
                                 <div class="car-info-box">
                                     <!--<a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>-->
-                                    <a href="#"><img src="~assets/images/2.png" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/2.png" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                     <div class="checkbox">
                                         <input type="checkbox" id="compare5">
@@ -891,7 +891,7 @@
                             <div class="recent-car-list">
                                 <div class="car-info-box">
                                     <!--<a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>-->
-                                    <a href="#"><img src="~assets/images/3.png" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/3.png" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare6">
@@ -916,7 +916,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare7">
@@ -941,7 +941,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare8">
@@ -966,7 +966,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare9">
@@ -994,7 +994,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <
                                     <!--div class="compare_item">
                                         <div class="checkbox">
@@ -1020,7 +1020,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare10">
@@ -1045,7 +1045,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare11">
@@ -1070,7 +1070,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare12">
@@ -1095,7 +1095,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare13">
@@ -1120,7 +1120,7 @@
                         <div class="col-list-3">
                             <div class="recent-car-list">
                                 <div class="car-info-box">
-                                    <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt=""></a>
+                                    <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt=""></a>
                                     <!--<div class="compare_item">
                                         <div class="checkbox">
                                             <input type="checkbox" id="compare14">
@@ -1218,37 +1218,37 @@
                 <div class="col-lg-12">
                     <div id="trending_slider">
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
                         </div>
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
                         </div>
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
                         </div>
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
                         </div>
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
                         </div>
                         <div class="trending-car-m">
-                            <div class="trending-car-img"> <img src="~assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
+                            <div class="trending-car-img"> <img src="~/assets/images/600x380_2.jpg" alt="Image" class="img-fluid" /> </div>
                             <div class="trending-hover">
                                 <h4><a href="#">Car Name</a></h4>
                             </div>
@@ -1269,7 +1269,7 @@
             <div class="row">
                 <div id="testimonial-slider">
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Donald Brooks</h5>
@@ -1279,7 +1279,7 @@
                         </div>
                     </div>
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Enzo Giovanotelli</h5>
@@ -1289,7 +1289,7 @@
                         </div>
                     </div>
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Donald Brooks</h5>
@@ -1299,7 +1299,7 @@
                         </div>
                     </div>
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Enzo Giovanotelli</h5>
@@ -1309,7 +1309,7 @@
                         </div>
                     </div>
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Donald Brooks</h5>
@@ -1319,7 +1319,7 @@
                         </div>
                     </div>
                     <div class="testimonial-m">
-                        <div class="testimonial-img"> <img src="~assets/images/300x300.jpg" alt="images" /> </div>
+                        <div class="testimonial-img"> <img src="~/assets/images/300x300.jpg" alt="images" /> </div>
                         <div class="testimonial-content">
                             <div class="testimonial-heading">
                                 <h5>Enzo Giovanotelli</h5>
@@ -1355,7 +1355,7 @@
                                     <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
-                            <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                            <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                             <ul>
                                 <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Latest Cars</a></li>
                                 <li><i class="fa fa-calendar" aria-hidden="true"></i>15 Nov 2016</li>
@@ -1381,7 +1381,7 @@
                                     <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
-                            <a href="#"><img src="~assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
+                            <a href="#"><img src="~/assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
                             <ul>
                                 <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Latest Cars</a></li>
                                 <li><i class="fa fa-calendar" aria-hidden="true"></i>10 Nov 2016</li>
@@ -1433,13 +1433,13 @@
             </div>
             <div class="brand-logo-list">
                 <div id="popular_brands">
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-                    <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+                    <div><a href="#"><img src="~/assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
                 </div>
             </div>
         </div>
@@ -1682,17 +1682,17 @@
         </footer>
     </div>
     <!-- Scripts -->
-    @Scripts.Render("assets/js/jquery.min.js")
-    @Scripts.Render("assets/js/popper.min.js")
-    @Scripts.Render("assets/js/bootstrap.min.js")
-    @Scripts.Render("assets/js/interface.js")
+    @Scripts.Render("~/assets/js/jquery.min.js")
+    @Scripts.Render("~/assets/js/popper.min.js")
+    @Scripts.Render("~/assets/js/bootstrap.min.js")
+    @Scripts.Render("~/assets/js/interface.js")
     <!--bootstrap-slider-JS-->
-    @Scripts.Render("assets/js/bootstrap-slider.min.js")
+    @Scripts.Render("~/assets/js/bootstrap-slider.min.js")
     <!--Slider-JS-->
-    @Scripts.Render("assets/js/slick.min.js")
-    @Scripts.Render("assets/js/owl.carousel.min.js")
+    @Scripts.Render("~/assets/js/slick.min.js")
+    @Scripts.Render("~/assets/js/owl.carousel.min.js")
     <!--by SM for fb authentication-->
-    @Scripts.Render("Scripts/jquery.3.3.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.3.3.1.min.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -23,7 +23,7 @@ namespace autocarrs.Controllers
         // GET: AutosVehicles
         public async Task<ActionResult> Index()
         {
-            var autosVehicles = db.AutosVehicles.Include(a => a.CarBdoy).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
+            var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
             return View(await autosVehicles.ToListAsync());
         }
 
