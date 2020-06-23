@@ -1,0 +1,42 @@
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.deps.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.dev.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.dll
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csprojAssemblyReference.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cs
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfoInputs.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfo.cs
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorTargetAssemblyInfo.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.pdb
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.dll
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.pdb
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csprojAssemblyReference.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cs
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfoInputs.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfo.cs
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.dll
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.pdb
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.deps.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.dev.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.dll
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.pdb
+F:\Mars\FreelanceWork\faisal-butt - sialkot\aaautocars.com\aaautocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorTargetAssemblyInfo.cache
+C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.deps.json
+C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.json
+C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.dev.json
+C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.dll
+C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.pdb
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csprojAssemblyReference.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cs
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfoInputs.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfo.cs
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorTargetAssemblyInfo.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.dll
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.pdb

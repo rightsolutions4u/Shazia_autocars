@@ -1,0 +1,38 @@
+﻿@model autocarrs.Models.FaceBookUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FaceBookLogin</title>
+</head>
+<body>
+    <h1>
+
+        Login from Facebook
+    </h1>
+
+    <div id="auth-status">
+
+        <div id="auth-loggedout">
+
+
+
+            <div class="fb-login-button" autologoutlink="true" scope="email,user_checkins">Login with Facebook</div>
+
+        </div>
+
+        <div id="auth-loggedin" style="display: none">
+
+            Hi, <span id="auth-displayname"></span>(<a href="#" id="auth-logoutlink">logout</a>)
+
+        </div>
+
+    </div>
+</body>
+</html>
