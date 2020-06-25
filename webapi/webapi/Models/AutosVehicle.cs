@@ -55,8 +55,6 @@ namespace webapi.Models
         public string CatgId { get; set; }
         // Foreign Key
         public string SellID { get; set; }
-        // Foreign Key
-        public int ImageID { get; set; } //added new by SM on Jun 24
         //Navigation property
         public CarMake CarMake { get; set; }
         //Navigation property
@@ -65,6 +63,7 @@ namespace webapi.Models
         public CarBody CarBody { get; set; }
         //Navigation property
         public CarCategory CarCategory { get; set; }
+        public ICollection<AutosImages> AutosImages { get; set; }
 
     }
 }

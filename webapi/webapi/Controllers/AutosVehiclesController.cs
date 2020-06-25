@@ -34,10 +34,11 @@ namespace webapi.Controllers
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
+                            //.Include(a => a.AutosImages.SingleOrDefault() )
                             .ToListAsync();
             return autosVehicle;
         }
-
+       
 
         // GET: api/AutosVehicles
         [HttpGet("GetFeatuedAutos")]
@@ -49,10 +50,10 @@ namespace webapi.Controllers
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
+                            //.Include(a => a.AutosImages.SingleOrDefault())
                             .ToListAsync();
                       
             return A;
-
             
         }
         // GET: api/AutosVehicles

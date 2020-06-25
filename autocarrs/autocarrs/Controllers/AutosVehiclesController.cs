@@ -28,22 +28,22 @@ namespace autocarrs.Controllers
         }
 
         // GET: AutosVehicles
-        public async Task<ActionResult> GetAutosWithImages()
-        {
-            //var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
-            var viewModel = new AutosWithImages();
-            viewModel.AutosVehicle = db.AutosVehicles
-                .Include(a => a.CarBody)
-                .Include(a => a.CarCategory)
-                .Include(a => a.CarMake)
-                .Include(a => a.CarModel);
-            viewModel.AutosImages= viewModel.AutosVehicle.Where
-                (a => a.AutoId /*== id.Value*/).Single().AutosImages;
-            ;
+        //public async Task<ActionResult> GetAutosWithImages()
+        //{
+        //    //var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
+        //    var viewModel = new AutosWithImages();
+        //    viewModel.AutosVehicle = db.AutosVehicles
+        //        .Include(a => a.CarBody)
+        //        .Include(a => a.CarCategory)
+        //        .Include(a => a.CarMake)
+        //        .Include(a => a.CarModel);
+        //    viewModel.AutosImages= viewModel.AutosVehicle.Where
+        //        (a => a.AutoId /*== id.Value*/).Single().AutosImages;
+        //    ;
 
 
-            return View(await viewModel.ToListAsync());
-        }
+        //    return View(await viewModel.ToListAsync());
+        //}
         // GET: AutosVehicles
         [HttpGet]
         public async Task<ActionResult> GetFeaturedAutos()
@@ -62,11 +62,11 @@ namespace autocarrs.Controllers
                 try {
                     AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosFeatured);
                 ViewBag.AutosVehicle = a;
-                return View("Featured", a);
+                return View("Featured_cars", a);
                 }
                 catch {
                     Error err = new Error();
-                    err.ErrorMessage = "Wrong UserId or Password";
+                    err.ErrorMessage = "All our cars are Featured cars";
                     ViewBag.Error = err;
                     ViewBag.AutosVehicle = null;
                     return View("Error", err);

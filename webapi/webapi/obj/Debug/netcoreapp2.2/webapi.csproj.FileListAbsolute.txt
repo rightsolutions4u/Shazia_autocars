@@ -39,3 +39,4 @@ C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfo
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorTargetAssemblyInfo.cache
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.dll
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.pdb
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csprojAssemblyReference.cache

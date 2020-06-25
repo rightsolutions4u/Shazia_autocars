@@ -1225,14 +1225,11 @@
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
             </div>
             <div class="row">
-                <div >
-                    <input type="button" onclick="location.href='@Url.Action("GetFeaturedAutos","AutosVehicles")'" />
-                    @if (Model is autocarrs.Models.AutosVehicle)
-                    {
-                        //Html.RenderPartial("Featured");
-                        @Html.ActionLink("~/GetFeaturedAutos", "AutosVehicles")
+                <div>
+                   @{
+                        Html.RenderPartial("Featured_cars");
                     }
-                </div>
+                 </div>
             </div>
         </div>
     </section>

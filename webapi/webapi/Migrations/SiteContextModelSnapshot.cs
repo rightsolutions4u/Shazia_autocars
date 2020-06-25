@@ -97,6 +97,25 @@ namespace webapi.Migrations
                     b.ToTable("autosbuyer");
                 });
 
+            modelBuilder.Entity("webapi.Models.AutosImages", b =>
+                {
+                    b.Property<int>("ImageID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AutosID");
+
+                    b.Property<int?>("AutosVehicleAutoId");
+
+                    b.Property<string>("ImgURL")
+                        .HasMaxLength(200);
+
+                    b.HasKey("ImageID");
+
+                    b.HasIndex("AutosVehicleAutoId");
+
+                    b.ToTable("AutosImages");
+                });
+
             modelBuilder.Entity("webapi.Models.AutosSeller", b =>
                 {
                     b.Property<string>("SellID")
@@ -196,8 +215,7 @@ namespace webapi.Migrations
 
                     b.Property<string>("SellID");
 
-                    b.Property<int>("SellPri")
-                        .HasMaxLength(45);
+                    b.Property<int>("SellPri");
 
                     b.Property<string>("StatNm")
                         .HasMaxLength(45);
@@ -400,6 +418,13 @@ namespace webapi.Migrations
                     b.HasKey("FEATID");
 
                     b.ToTable("vehiclefeatures");
+                });
+
+            modelBuilder.Entity("webapi.Models.AutosImages", b =>
+                {
+                    b.HasOne("webapi.Models.AutosVehicle")
+                        .WithMany("AutosImages")
+                        .HasForeignKey("AutosVehicleAutoId");
                 });
 
             modelBuilder.Entity("webapi.Models.AutosVehicle", b =>
