@@ -13,7 +13,7 @@ namespace webapi.Data
         public SiteContext(DbContextOptions<SiteContext> options)
             : base(options)
         {
-
+            //this.Configuration.LazyLoadingEnabled = false; // to avoid serialization issues
         }
 
         public DbSet<SiteUsers> SiteUsers { get; set; }
@@ -28,11 +28,10 @@ namespace webapi.Data
         public DbSet<webapi.Models.CarMake> carmake { get; set; }
         public DbSet<webapi.Models.CarModel> carmodel { get; set; }
         public DbSet<webapi.Models.OrderDetails> orderdetails { get; set; }
-        public DbSet<webapi.Models.OrderMaster> ordermaster { get; set; }
+        public DbSet<webapi.Models.OrderMaster> ordoermaster { get; set; }
         public DbSet<webapi.Models.Vehiclefeatures> vehiclefeatures { get; set; }
-        public DbQuery<webapi.Models.VAutosVehicle> VAutosVehicle {get; set;}
-
-
+        public DbSet<webapi.Models.AutosImages> AutosImages { get; set; }
+        //public DbQuery<webapi.Models.VAutosVehicle> VAutosVehicle {get; set;}
         //Using fluent API to generate composite key
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

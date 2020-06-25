@@ -63,12 +63,39 @@
         .active, .collapsible:hover {
             background-color: lightgray;
         }
-      
     </style>
     @* Changes end here *@
+    @* script to auto invoke controller action *@
+    @*<script>
+                    var int = setInterval('check()', 500);
+                    function check() {
+                        if (chkObject('Shazia') == true) {
+                            window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
+                            window.alert('true');
+                            int = window.clearInterval(int)
+                        }
+                        else {
+                            document.write('<p>false </p>')
+                        }
+                    }
 
+                    function chkObject(elemId) {
+                        return (document.getElementById(elemId)) ? true : false;
+                    }
+    </script>*@
+  
 </head>
 <body>
+    @* my changes to invoke getfeaturedautos by sm on jun 24 *@
+    @*<script>
+                    $(document).ready(function () {
+                        window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
+                     });
+                            $(document).on("pageload",function(){
+                       window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
+        });
+    </script>*@
+    @* my changes end herf *@
     <header>
         <div class="default-header">
             <div class="container">
@@ -87,7 +114,7 @@
                                 <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
                                 <p class="uppercase_text">Service Helpline Call Us: </p>
                                 <a href="tel:61-1234-5678-09"></a>
-                                
+
 
                             </div>
                             <div class="social-follow">
@@ -101,10 +128,10 @@
                             </div>
                             <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
                         </div>
-                        
+
                     </div>
                 </div>
-                <div class="row" >
+                <div class="row">
                     <div style="text-align: right;">
                         @if (Model is autocarrs.Models.SiteUsers)
                         {
@@ -729,7 +756,7 @@
         <div class="container">
             <div class="section-header text-center">
                 <h2> Search by<span></span></h2>
-                <p>We have the largest selection of these categories in the entire Czech Republic</p>
+                <p>We have the largest selection of these categories in the entire Saudi Arabia</p>
             </div>
             <div class="recent-tab">
                 <ul class="nav nav-tabs " role="tablist">
@@ -1191,21 +1218,24 @@
     </section>
     <!-- /Fun Facts-->
     <!--Featured Car-->
-    <section class="section-padding">
+    <section class="section-padding" @*id="Shazia"*@>
         <div class="container">
             <div class="section-header text-center">
                 <h2>Featured  Cars <span>Special Offers</span></h2>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
             </div>
             <div class="row">
-                <input type="button" onclick="location.href='@Url.Action("GetFeaturedAutos","AutosVehicles")'" />
-                @if (Model is autocarrs.Models.AutosVehicle)
-                {
-                    Html.RenderPartial("Featured");
-                }
+                <div >
+                    <input type="button" onclick="location.href='@Url.Action("GetFeaturedAutos","AutosVehicles")'" />
+                    @if (Model is autocarrs.Models.AutosVehicle)
+                    {
+                        //Html.RenderPartial("Featured");
+                        @Html.ActionLink("~/GetFeaturedAutos", "AutosVehicles")
+                    }
+                </div>
             </div>
         </div>
-</section>
+    </section>
     <!-- /Featured Car-->
     <!--Trending Car-->
     <section class="section-padding gray-bg">
@@ -1553,18 +1583,19 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Login" id="login" class="btn btn-block">
-                                        <div class="form-group">">
+                                        <div class="form-group">
+                                            ">
                                             @if (Model is autocarrs.Models.Error)
                                             {
                                                 Html.RenderPartial("Error");
                                             }
                                         </div>
                                     </div>
-                                 </form>
+                                </form>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <h6 class="gray_text">Login the Quick Way</h6>
-                                <a href="Account/LoginWithFaceBook" class="btn btn-block facebook-btn" ><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a>
+                                <a href="Account/LoginWithFaceBook" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a>
                             </div>
                             <div class="mid_divider"></div>
                         </div>

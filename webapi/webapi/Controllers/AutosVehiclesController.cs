@@ -33,21 +33,26 @@ namespace webapi.Controllers
                             .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
-                            .Include(a => a.CarCategory).ToListAsync();
+                            .Include(a => a.CarCategory)
+                            .ToListAsync();
             return autosVehicle;
         }
+
 
         // GET: api/AutosVehicles
         [HttpGet("GetFeatuedAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetFeatuedAutos()
         {
-           return await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
+           var A= await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
                             && a.IsReserved != 1 && a.IsTrendy == 1)
                             .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
                             .ToListAsync();
+                      
+            return A;
+
             
         }
         // GET: api/AutosVehicles

@@ -242,6 +242,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AutosImagesController.cs" />
     <Compile Include="Controllers\AutosVehiclesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,7 +251,9 @@
     <Compile Include="Interfaces\IFacebookService.cs" />
     <Compile Include="Models\AdminUserRoles.cs" />
     <Compile Include="Models\autocarrsContext.cs" />
+    <Compile Include="Models\AutosImages.cs" />
     <Compile Include="Models\AutosVehicle.cs" />
+    <Compile Include="Models\AutosWithImages.cs" />
     <Compile Include="Models\CarBody.cs" />
     <Compile Include="Models\CarCategory.cs" />
     <Compile Include="Models\CarMake.cs" />
@@ -409,6 +412,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AutosImages\" />
     <Folder Include="Views\AutosVehicles\" />
   </ItemGroup>
   <ItemGroup>

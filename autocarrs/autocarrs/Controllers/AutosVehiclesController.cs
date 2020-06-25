@@ -28,6 +28,23 @@ namespace autocarrs.Controllers
         }
 
         // GET: AutosVehicles
+        public async Task<ActionResult> GetAutosWithImages()
+        {
+            //var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
+            var viewModel = new AutosWithImages();
+            viewModel.AutosVehicle = db.AutosVehicles
+                .Include(a => a.CarBody)
+                .Include(a => a.CarCategory)
+                .Include(a => a.CarMake)
+                .Include(a => a.CarModel);
+            viewModel.AutosImages= viewModel.AutosVehicle.Where
+                (a => a.AutoId /*== id.Value*/).Single().AutosImages;
+            ;
+
+
+            return View(await viewModel.ToListAsync());
+        }
+        // GET: AutosVehicles
         [HttpGet]
         public async Task<ActionResult> GetFeaturedAutos()
         {
