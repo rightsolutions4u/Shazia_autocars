@@ -28,12 +28,35 @@ namespace autocarrs.Controllers
         }
 
         //GET: AutosVehicles
-        [HttpGet]
-        public ActionResult GetAutosVehilceSearch(FormCollection data)
+        [HttpPost]
+        public ActionResult SearchCars(FormCollection data)
         {
+            string Qry="";
             AutosVehicle autosVehicle = new AutosVehicle();
+            
 
             string Brand = data["Brand"];
+            if (data["Brand"]!=null)
+            {
+                Qry = Qry + " and MakeId=" + data["Brand"];
+            }
+            if (data["CarModel"] != null)
+            {
+                    Qry = Qry + " and ModlId=" + data["CarModel"];
+            }
+            if (data["CarYear"] != null)
+            {
+                    Qry = Qry + " and AuYear=" + data["CarYear"];
+            }
+            string tobesend = Qry;
+            //We have to check all variable in your search and make a full where clause
+            //you can pass this Qry to controller action
+            //check  AutosVehicle/SearchCars
+
+
+
+
+
             return View();
         }
         // GET: AutosVehicles

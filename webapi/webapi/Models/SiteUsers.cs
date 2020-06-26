@@ -22,7 +22,6 @@ namespace webapi.Models
         public string UserPassword { get; set; }
         [StringLength(50)]
         public string UserEmail { get; set; }
-        [StringLength(50)]
         public int IsActive { get; set; }
         public int IsDeleted { get; set; }
         [StringLength(50)]

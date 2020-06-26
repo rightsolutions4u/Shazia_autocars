@@ -212,38 +212,38 @@
     <!-- /Banners -->
     <!-- Filter-Form -->
     <section id="filter_form" class="gray-bg">
-       <form action="~/AutosVehicle/GetAutosVehilceSearch" method="post">
+       <form action="~/AutosVehicles/SearchCars" method="post">
                 <div class="container">
                     <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
                       <div class="row">
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <div class="select">
                                 <select class="form-control" name="Brand" ide="Brand">
-                                    <option>Select Brand</option>
-                                    <option>Brand 1</option>
-                                    <option>Brand 2</option>
-                                    <option>Brand 3</option>
-                                    <option>Brand 3</option>
+                                    <option value="">Select Brand</option>
+                                    <option value="Brand 1">Brand 1</option>
+                                    <option value="Brand 2">Brand 2</option>
+                                    <option value="Brand 3">Brand 3</option>
+                                    <option value="Brand 4">Brand 4</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <div class="select">
-                                <select class="form-control" name="CarModel" ide="CarModel">
-                                    <option>Select Model</option>
-                                    <option>Series 1</option>
-                                    <option>Series 2</option>
-                                    <option>Series 3</option>
+                                <select class="form-control" name="CarModel" id="CarModel">
+                                    <option value="">Select Model</option>
+                                    <option value="Series 1">Series 1</option>
+                                    <option value="Series 2">Series 2</option>
+                                    <option value="Series 3">Series 3</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
-                            <div class="select">
+                            <div class="select" name="CarYear" id="CarYear">
                                 <select class="form-control">
-                                    <option>Year of Model </option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
+                                    <option value="">Year of Model </option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
                                 </select>
                             </div>
                         </div>
@@ -1203,22 +1203,13 @@
     </section>
     <!-- /Fun Facts-->
     <!--Featured Car-->
-    <section class="section-padding" @*id="Shazia"*@>
+    <section class="section-padding">
         <div class="container">
-            <div class="section-header text-center">
-                <h2>Featured  Cars <span>Special Offers</span></h2>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
-            </div>
-            <div class="row">
-                <div>
-
-                  
-                    @{
-                        Html.RenderPartial("Featured_cars");
-                    }
-
-
-                </div>
+            <div>
+                @*@if (Model is autocarrs.Models.AutosVehicle)*@
+                @{
+                    Html.RenderPartial("Featured_cars");
+                }
             </div>
         </div>
     </section>
@@ -1570,7 +1561,7 @@
                                     <div class="form-group">
                                         <input type="submit" value="Login" id="login" class="btn btn-block">
                                         <div class="form-group">
-                                            ">
+                                           
                                             @if (Model is autocarrs.Models.Error)
                                             {
                                                 Html.RenderPartial("Error");

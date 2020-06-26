@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -56,6 +57,16 @@ namespace webapi.Controllers
             return A;
             
         }
+
+        //// GET: api/AutosVehicles
+        //[HttpGet("SearchCars")]
+        //public ActionResult<List<AutosVehicle>> SearchCars(string Sql)
+        //{
+        //    AutosVehicle AV = new AutosVehicle();
+        //    //Please right code here to send sql with where clause
+        //    return AV;
+
+        //}
         // GET: api/AutosVehicles
         [HttpGet("GetTrendyAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()
