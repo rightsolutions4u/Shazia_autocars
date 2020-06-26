@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\autocarrs",
+    "\\autocarrs\\autocarrs",
+    "\\autocarrs\\autocarrs\\Controllers",
+    "\\autocarrs\\autocarrs\\Models",
+    "\\autocarrs\\autocarrs\\Views",
+    "\\autocarrs\\autocarrs\\Views\\Shared"
+  ],
+  "SelectedNode": "\\autocarrs\\autocarrs\\Models\\MakeModel.cs",
+  "PreviewInSolutionExplorer": false
+}

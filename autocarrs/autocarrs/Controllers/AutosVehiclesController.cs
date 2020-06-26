@@ -27,23 +27,15 @@ namespace autocarrs.Controllers
             return View(await autosVehicles.ToListAsync());
         }
 
-        // GET: AutosVehicles
-        //public async Task<ActionResult> GetAutosWithImages()
-        //{
-        //    //var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
-        //    var viewModel = new AutosWithImages();
-        //    viewModel.AutosVehicle = db.AutosVehicles
-        //        .Include(a => a.CarBody)
-        //        .Include(a => a.CarCategory)
-        //        .Include(a => a.CarMake)
-        //        .Include(a => a.CarModel);
-        //    viewModel.AutosImages= viewModel.AutosVehicle.Where
-        //        (a => a.AutoId /*== id.Value*/).Single().AutosImages;
-        //    ;
+        //GET: AutosVehicles
+        [HttpGet]
+        public ActionResult GetAutosVehilceSearch(FormCollection data)
+        {
+            AutosVehicle autosVehicle = new AutosVehicle();
 
-
-        //    return View(await viewModel.ToListAsync());
-        //}
+            string Brand = data["Brand"];
+            return View();
+        }
         // GET: AutosVehicles
         [HttpGet]
         public async Task<ActionResult> GetFeaturedAutos()
