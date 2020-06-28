@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using autocarrs.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Text;
+using System.Collections.Specialized;
 
 namespace autocarrs.Controllers
 {
@@ -26,38 +28,46 @@ namespace autocarrs.Controllers
             var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
             return View(await autosVehicles.ToListAsync());
         }
-
+       
         //GET: AutosVehicles
         [HttpPost]
-        public ActionResult SearchCars(FormCollection data)
+        public async Task<ActionResult> SearchCars(FormCollection data)
         {
-            string Qry="";
+
+            Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
             AutosVehicle autosVehicle = new AutosVehicle();
+            var myContent = JsonConvert.SerializeObject(form);
             
 
-            string Brand = data["Brand"];
-            if (data["Brand"]!=null)
+            try
             {
-                Qry = Qry + " and MakeId=" + data["Brand"];
+                var data1 = new StringContent(myContent,  Encoding.UTF8, "application/json");
+                
+
+                var url = "https://localhost:44363/api/AutosVehicles/SearchCars";
+
+                var client = new HttpClient();
+               //  var dict = new FormUrlEncodedContent(form.AllKeys.ToDictionary(k => k, v => form[v]));
+
+                var response = await client.PostAsync(url, data1);
+
+                var AutosSearch = response.Content.ReadAsStringAsync().Result;
+                AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosSearch);
+                //var a = JsonConvert.DeserializeObject<AutosVehicle>(AutosSearch);
+                ViewBag.AutosVehicle = a;
+                return View("MainView", a);
+
             }
-            if (data["CarModel"] != null)
+            catch (Exception e)
             {
-                    Qry = Qry + " and ModlId=" + data["CarModel"];
+                Error err = new Error();
+                err.ErrorMessage = "Wrong UserId or Password";
+                ViewBag.Error = err;
+                ViewBag.AutosVehicle = null;
+                return View("Error", err);
             }
-            if (data["CarYear"] != null)
-            {
-                    Qry = Qry + " and AuYear=" + data["CarYear"];
-            }
-            string tobesend = Qry;
-            //We have to check all variable in your search and make a full where clause
-            //you can pass this Qry to controller action
-            //check  AutosVehicle/SearchCars
 
 
-
-
-
-            return View();
         }
         // GET: AutosVehicles
         [HttpGet]

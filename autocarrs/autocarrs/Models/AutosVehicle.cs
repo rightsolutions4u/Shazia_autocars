@@ -62,6 +62,8 @@ namespace autocarrs.Models
         public CarBody CarBody { get; set; }
         //Navigation property
         public CarCategory CarCategory { get; set; }
+        public ICollection<AutosImages> AutosImages { get; set; }
+        //public ICollection<AutosFeatures> AutosFeatures { get; set; }
 
     }
 }

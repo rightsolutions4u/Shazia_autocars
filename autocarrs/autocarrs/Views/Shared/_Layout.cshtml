@@ -74,9 +74,7 @@
            $(document).ready(function () {
               window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
               })
-                @*$(document).on("pageload",function(){
-                window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
-            });*@
+               
         </script>
     @* my changes end herf *@
     <header>
@@ -220,10 +218,10 @@
                             <div class="select">
                                 <select class="form-control" name="Brand" ide="Brand">
                                     <option value="">Select Brand</option>
-                                    <option value="Brand 1">Brand 1</option>
-                                    <option value="Brand 2">Brand 2</option>
-                                    <option value="Brand 3">Brand 3</option>
-                                    <option value="Brand 4">Brand 4</option>
+                                    <option value="Brand 1">1</option>
+                                    <option value="Brand 2">2</option>
+                                    <option value="Brand 3">3</option>
+                                    <option value="Brand 4">4</option>
                                 </select>
                             </div>
                         </div>
@@ -231,25 +229,25 @@
                             <div class="select">
                                 <select class="form-control" name="CarModel" id="CarModel">
                                     <option value="">Select Model</option>
-                                    <option value="Series 1">Series 1</option>
-                                    <option value="Series 2">Series 2</option>
-                                    <option value="Series 3">Series 3</option>
+                                    <option value="Series 1">1</option>
+                                    <option value="Series 2">2</option>
+                                    <option value="Series 3">3</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
-                            <div class="select" name="CarYear" id="CarYear">
-                                <select class="form-control">
+                            <div class="select" >
+                                <select class="form-control" name="AuYear" id="CarYear">
                                     <option value="">Year of Model </option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
+                                    <option value="2016">2018</option>
+                                    <option value="2015">2019</option>
                                     <option value="2014">2014</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <label class="form-label">Price Range ($)</label>
-                            <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" />
+                            <input id="price_range" name="SellPri" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" />
                         </div>
                         @*@Html.Partial("MakeModelYear");*@
                         <div class="form-group col-md-12 col-sm-6 black_input">
@@ -282,7 +280,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-7 col-sm-6 blue_input ">
                                                             <div class="select">
-                                                                <select class="form-control  ">
+                                                                <select class="form-control" name="Transmission" id="Transmission">
                                                                     <option>Transmission</option>
                                                                     <option>Automatic</option>
                                                                     <option>Manual</option>
@@ -291,7 +289,7 @@
                                                         </div>
                                                         <div class="form-group col-md-5 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" name="Fuel" id="Fuel">
                                                                     <option>Fuel</option>
                                                                     <option>Diesel</option>
                                                                     <option>hybrid</option>
@@ -302,7 +300,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-6 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" name="Body" id="Body">
                                                                     <option>Body</option>
                                                                     <option>SUV</option>
                                                                     <option>Pickup</option>
@@ -316,7 +314,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="from" value="0.00" class="form-control">
+                                                                <input type="text" id="from" name="from " value="0.00" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -326,7 +324,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="to" value="26,000,000" class="form-control">
+                                                                <input type="text" id="to" name="to" value="26,000,000" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -338,13 +336,13 @@
                                                     </div>
                                                     <div class="form-group col-md-3 col-sm-6 blue_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="4X4">
+                                                            <input type="checkbox" id="4X4" name="4x4">
                                                             <label for="4X4">4X4</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-9 col-sm-6 black_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="vat deduction">
+                                                            <input type="checkbox" id="vat deduction" name="vatdeduction">
                                                             <label for="vat deduction">only with vat deduction</label>
                                                         </div>
                                                     </div>
@@ -356,7 +354,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="fromMil" value="0.00" class="form-control">
+                                                                <input type="text" id="FromMil" name="FromMil" value="0.00" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -366,7 +364,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="toMil" value="150,000" class="form-control">
+                                                                <input type="text" id="ToMil" name="ToMil" value="150,000" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -379,7 +377,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="fromyear" value="2019" class="form-control">
+                                                                <input type="text" id="FromYear" name="FromYear" value="2019" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -389,7 +387,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="toyear" value="2020" class="form-control">
+                                                                <input type="text" id="ToYear" name="ToYear" value="2020" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -408,7 +406,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="PowerFrom" name="PowerFrom">
                                                                     <option>Power from</option>
                                                                     <option>70 kw</option>
                                                                     <option>90 kw</option>
@@ -417,7 +415,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="PowerTo" name="PowerTo">
                                                                     <option>Power to</option>
                                                                     <option>70 kw</option>
                                                                     <option>90 kw</option>
@@ -426,7 +424,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Volume" name="Volume">
                                                                     <option>Volume</option>
                                                                     <option>1000-13000cc</option>
                                                                     <option>13000-14000cc</option>
@@ -435,7 +433,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Engine" name="Engine">
                                                                     <option>Engine</option>
                                                                     <option>Automatic</option>
                                                                     <option>Manual</option>
@@ -446,7 +444,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Seats" name="Seats">
                                                                     <option>Seats</option>
                                                                     <option>5</option>
                                                                     <option>8</option>
@@ -455,7 +453,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Consumption" name="Consumption">
                                                                     <option>Avg Consumption</option>
                                                                     <option>Up to 5l</option>
                                                                     <option>Up to 8</option>
@@ -464,7 +462,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Doors" name="Doors">
                                                                     <option>Doors</option>
                                                                     <option>4</option>
                                                                     <option>2</option>
@@ -489,7 +487,7 @@
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control">
+                                                                <select class="form-control" id="Color" name="Color">
                                                                     <option>Car color</option>
                                                                     <option>green</option>
                                                                     <option>blue</option>
@@ -520,25 +518,25 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="central">
+                                                                <input type="checkbox" id="central" name="Central">
                                                                 <label for="central">central</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="el.windows">
+                                                                <input type="checkbox" id="el.windows" name="ElWindows">
                                                                 <label for="el.windows">el.windows</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="parking assitant">
+                                                                <input type="checkbox" id="ParkingAssitant" name="ParkingAssitant">
                                                                 <label for="parking assitant">parking assitant</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-2 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="4X41">
+                                                                <input type="checkbox" id="4X41" name="4X41">
                                                                 <label for="4X41">4X4</label>
                                                             </div>
                                                         </div>
@@ -546,25 +544,25 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ABS">
+                                                                <input type="checkbox" id="ABS" name="ABS">
                                                                 <label for="ABS">ABS</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="air cond.">
+                                                                <input type="checkbox" id="AirCond." name="AirCond">
                                                                 <label for="air cond.">air cond.</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="cruise control">
+                                                                <input type="checkbox" id="CruiseControl" name="CruiseControl">
                                                                 <label for="cruise control">cruise control</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-2 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ESP">
+                                                                <input type="checkbox" id="ESP" name="ESP">
                                                                 <label for="ESP">ESP</label>
                                                             </div>
                                                         </div>
@@ -572,13 +570,13 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-6 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Aut.air cond.">
+                                                                <input type="checkbox" id="Aut.air cond." name="Aut.Air">
                                                                 <label for="Aut.air cond.">Aut.air conditioning</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Stop Start System">
+                                                                <input type="checkbox" id="Stop Start System" name="StopStartSystem">
                                                                 <label for="Stop Start System">Stop Start System.</label>
                                                             </div>
                                                         </div>
@@ -594,19 +592,19 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="roof racks">
+                                                                <input type="checkbox" id="roof racks" name="roofracks">
                                                                 <label for="roof racks">roof racks</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Leather Interior">
+                                                                <input type="checkbox" id="Leather Interior" name="LeatherInterior">
                                                                 <label for="Leather Interior">Leather Interior</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Panoramic roof">
+                                                                <input type="checkbox" id="Panoramic roof" name="PanoramicRoof">
                                                                 <label for="Panoramic roof">Panoramic roof</label>
                                                             </div>
                                                         </div>
@@ -614,19 +612,19 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="towing device">
+                                                                <input type="checkbox" id="towing device" name="TowingDevice">
                                                                 <label for="towing device">towing device</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Heated seats">
+                                                                <input type="checkbox" id="Heated seats" name="HeatedSeats">
                                                                 <label for="Heated seats">Heated seats</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="el.seats">
+                                                                <input type="checkbox" id="el.seats" name="ElSeats">
                                                                 <label for="el.seats">el.seats</label>
                                                             </div>
                                                         </div>
@@ -634,7 +632,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="LED / Xenon">
+                                                                <input type="checkbox" id="LED / Xenon" name="LEDXenon">
                                                                 <label for="LED / Xenon">LED / Xenon</label>
                                                             </div>
                                                         </div>
@@ -645,25 +643,25 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Navigation">
+                                                                <input type="checkbox" id="Navigation" name="Navigation">
                                                                 <label for="Navigation">Navigation</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Bluetooth Connecton">
+                                                                <input type="checkbox" id="Bluetooth Connecton" name="Bluetooth">
                                                                 <label for="Bluetooth Connecton">Bluetooth Connecton</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Android Auto">
+                                                                <input type="checkbox" id="Android Auto" name="Android">
                                                                 <label for="Android Auto">Android Auto</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Apple CarPlay">
+                                                                <input type="checkbox" id="Apple CarPlay" name="AppleCarPlay">
                                                                 <label for="Apple CarPlay">Apple CarPlay</label>
                                                             </div>
                                                         </div>
@@ -671,25 +669,25 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Mirror Link">
+                                                                <input type="checkbox" id="Mirror Link" name="MirrorLink">
                                                                 <label for="Mirror Link">Mirror Link</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Premium audio system">
+                                                                <input type="checkbox" id="Premium audio system" name="PremiumAudio">
                                                                 <label for="Premium audio system">Premium audio system</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="TV">
+                                                                <input type="checkbox" id="TV" name="TV">
                                                                 <label for="TV">TV</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-2 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Voice control of on-board system">
+                                                                <input type="checkbox" id="Voice control of on-board system" name="VoiceControl">
                                                                 <label for="Voice control of on-board system">Voice control of on-board system</label>
                                                             </div>
                                                         </div>
@@ -697,14 +695,14 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Head up didsplay">
+                                                                <input type="checkbox" id="Head up didsplay" name="HeadUp">
                                                                 <label for="Head up didsplay">Head up didsplay</label>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Virual cockpit">
-                                                                <label for="Virual cockpit">Virual cockpit</label>
+                                                                <input type="checkbox" id="Virtual cockpit" name="VirtualCockpit">
+                                                                <label for="Virual cockpit">Virtual cockpit</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -730,6 +728,8 @@
                                     </script>
                                 </div> <!--tab content class-->
                             </div><!-- Added by SM on Jun 4 content div-->
+
+                            <!-- Added by SM on Jun 4 content div-->
                         </div><!--advanced search-->
                     </div>
 
@@ -1206,10 +1206,17 @@
     <section class="section-padding">
         <div class="container">
             <div>
-                @*@if (Model is autocarrs.Models.AutosVehicle)*@
-                @{
+                @*Html.RenderPartial("Featured_cars");*@
+                @if (Model is autocarrs.Models.AutosVehicle)
+                {
                     Html.RenderPartial("Featured_cars");
                 }
+                
+                else
+                {
+
+                }
+
             </div>
         </div>
     </section>

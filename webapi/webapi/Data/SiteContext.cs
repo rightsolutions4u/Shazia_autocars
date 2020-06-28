@@ -31,6 +31,7 @@ namespace webapi.Data
         public DbSet<webapi.Models.OrderMaster> ordoermaster { get; set; }
         public DbSet<webapi.Models.Vehiclefeatures> vehiclefeatures { get; set; }
         public DbSet<webapi.Models.AutosImages> AutosImages { get; set; }
+        public DbSet<webapi.Models.AutosFeatures> AutosFeatures { get; set; }
         //public DbQuery<webapi.Models.VAutosVehicle> VAutosVehicle {get; set;}
         //Using fluent API to generate composite key
         protected override void OnModelCreating(ModelBuilder modelBuilder)

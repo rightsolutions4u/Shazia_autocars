@@ -43,6 +43,7 @@ namespace autocarrs.Controllers
                 UriBuilder builder = new UriBuilder("https://localhost:44363/api/SiteUsers/CheckLogin?");
 
                 //builder.Query = "id=mars&UserPassword=mars";
+
                 builder.Query = "id=" + UserId + "&UserPassword=" + UserPassword;
 
                                

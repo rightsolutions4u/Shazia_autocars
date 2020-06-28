@@ -251,6 +251,7 @@
     <Compile Include="Interfaces\IFacebookService.cs" />
     <Compile Include="Models\AdminUserRoles.cs" />
     <Compile Include="Models\autocarrsContext.cs" />
+    <Compile Include="Models\AutosFeatuers.cs" />
     <Compile Include="Models\AutosImages.cs" />
     <Compile Include="Models\AutosVehicle.cs" />
     <Compile Include="Models\AutosWithImages.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Models\OrderMaster.cs" />
     <Compile Include="Models\SiteContext.cs" />
     <Compile Include="Models\SiteUsers.cs" />
+    <Compile Include="Models\Vehiclefeatures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -409,11 +411,13 @@
     <Content Include="Views\Account\FaceBookLogin.cshtml" />
     <Content Include="Views\Shared\Welcome.cshtml" />
     <Content Include="Views\Shared\Featured_cars.cshtml" />
+    <Content Include="Views\AutosVehicles\SearchView.cshtml" />
+    <Content Include="Views\AutosVehicles\MainView.cshtml" />
+    <Content Include="Views\Shared\FeaturedCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AutosImages\" />
-    <Folder Include="Views\AutosVehicles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

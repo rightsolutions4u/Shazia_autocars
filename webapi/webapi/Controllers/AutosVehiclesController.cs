@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using webapi.Data;
 using webapi.Models;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace webapi.Controllers
 {
@@ -45,17 +47,49 @@ namespace webapi.Controllers
         [HttpGet("GetFeatuedAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetFeatuedAutos()
         {
-           var A= await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
-                            && a.IsReserved != 1 && a.IsTrendy == 1)
-                            .Include(a => a.CarBody)
+            var A = await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
+                              && a.IsReserved != 1 && a.IsTrendy == 1 )
+                              .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
-                            //.Include(a => a.AutosImages.SingleOrDefault())
                             .ToListAsync();
                       
             return A;
             
+        }
+
+
+
+
+        // GET: api/AutosVehicles
+        [HttpPost("SearchCars")]
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars(AutosVehicle input)
+        {
+            //Console.WriteLine(input);
+          // JArray j = JArray.Parse(input);
+          
+            //listOfControlsVM = db.Controls.Where((!status.HasValue || s.Status.Description == status) 
+            //&& (!impact.HasValue || s.Impact == impact)).ToList();
+            //Nullable <int> pmakeid= new Nullable<int>(1);
+            //Nullable<int> n1 = new Nullable<int>(10);
+            //var pmakeid = "3";
+            //var pmodelid = "3";
+            var A = await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                  && a.IsReserved != 1
+                                 // && (String.IsNullOrEmpty(input.Brand) || a.MakeId == j.Brand)
+                                 //&& (String.IsNullOrEmpty(input.Series) || a.ModlId == j.Series)
+                                 )
+                               .Include(a => a.CarBody)
+                               .Include(a => a.CarMake)
+                               .Include(a => a.CarModel)
+                               .Include(a => a.CarCategory)
+                               //.Include(a => a.AutosFeatures)
+                               //  .ThenInclude(b => b.Vehiclefeatures)
+                               .ToListAsync();
+
+            return A;
+
         }
 
         //// GET: api/AutosVehicles
