@@ -14,7 +14,8 @@ namespace autocarrs.Models
         [Display(Name = "Features")]
         public string AuDesc { get; set; }
         //Foreign Key
-        public int FEATID { get; set; }
+        [StringLength(45)]
+        public string FEATID { get; set; }
         //Foreign Key
         public int AutoId { get; set; }
         //Navigation Property

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<autocarrs.Models.AutosVehicle>
+
+<h2>
+    <i>AutosVehicle</i>
+</h2>
+
+    @if (Model != null)
+    {
+        <table class="table" border="1">
+              <tr>
+                    <td>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                             <div class="col-list-3">
+                                    <div class="featured-car-list">
+                                        <div class="featured-car-img">
+                                            <a href=""><img src="~assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
+                                            <div class="label_icon">New</div>
+                                        </div>
+                                        <div class="featured-car-content">
+                                            <h6><a href="#">Car Name</a></h6>
+                                            <div class="price_info">
+                                                <p class="featured-price">$@item.SellPri</p>
+                                                <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+                                            </div>
+                                            <ul>
+                                                <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
+                                                <li><i class="fa fa-tachometer" aria-hidden="true"></i>@item.Mileag miles</li>
+                                                <li><i class="fa fa-calendar" aria-hidden="true"></i>@item.AuYear @item.CarModel.MdDesc</li>
+                                                <li><i class="fa fa-car" aria-hidden="true"></i>@item.FuelType</li>
+                                                <li><i class="fa fa-user" aria-hidden="true"></i>@item.Seater seats</li>
+                                                <li><i class="fa fa-superpowers" aria-hidden="true"></i>@item.Power kW</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                       </div>
+                </td>
+                </tr>
+            </table>
+    }
+

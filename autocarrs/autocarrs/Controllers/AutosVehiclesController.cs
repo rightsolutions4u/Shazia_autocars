@@ -27,33 +27,25 @@ namespace autocarrs.Controllers
         // GET: AutosVehicles
         public async Task<ActionResult> Index()
         {
-            var autosVehicles = db.AutosVehicles.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
+            var autosVehicles = db.AutosVehiclesCrollers.Include(a => a.CarBody).Include(a => a.CarCategory).Include(a => a.CarMake).Include(a => a.CarModel);
             return View(await autosVehicles.ToListAsync());
         }
-       
+
         //GET: AutosVehicles
         [HttpPost]
         public async Task<ActionResult> SearchCars(FormCollection data)
         {
-
-            //dynamic mymodel= new ExpandoObject();
-            //mymodel.SiteUsers.Login();
-          
+            
             Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
-            //var form = new FormUrlEncodedContent(data.AllKeys.ToDictionary(k => k, v => data[v]));
-            //string[] keys = new string[form.Keys.Count];
-            //data1=form.Keys.CopyTo(keys, 0);
-
             var qry = "PowerFrom="+ data["PowerFrom"] + "&PowerTo=" + data["PowerTo"] + "&FromMil=" + data["FromMil"] + "&ToMil="+ data["ToMil"];
-
             AutosVehicle autosVehicle = new AutosVehicle();
             var myContent = JsonConvert.SerializeObject(form);
+
            try
             {
-                var data1 = new StringContent( myContent,  Encoding.UTF8, "application/json");
+                var data1 = new StringContent( myContent + qry,  Encoding.UTF8, "application/json");
                  var url = "https://localhost:44363/api/AutosVehicles/SearchCars";
                 var client = new HttpClient();
-               
                 var response = await client.PostAsync(url, data1);
                 var AutosSearch = response.Content.ReadAsStringAsync().Result;
                 AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosSearch);
@@ -174,7 +166,7 @@ namespace autocarrs.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutosVehicle autosVehicle = await db.AutosVehicles.FindAsync(id);
+            AutosVehicle autosVehicle = await db.AutosVehiclesCrollers.FindAsync(id);
             if (autosVehicle == null)
             {
                 return HttpNotFound();
@@ -201,7 +193,7 @@ namespace autocarrs.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AutosVehicles.Add(autosVehicle);
+                db.AutosVehiclesCrollers.Add(autosVehicle);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -220,7 +212,7 @@ namespace autocarrs.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutosVehicle autosVehicle = await db.AutosVehicles.FindAsync(id);
+            AutosVehicle autosVehicle = await db.AutosVehiclesCrollers.FindAsync(id);
             if (autosVehicle == null)
             {
                 return HttpNotFound();
@@ -259,7 +251,7 @@ namespace autocarrs.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutosVehicle autosVehicle = await db.AutosVehicles.FindAsync(id);
+            AutosVehicle autosVehicle = await db.AutosVehiclesCrollers.FindAsync(id);
             if (autosVehicle == null)
             {
                 return HttpNotFound();
@@ -272,8 +264,8 @@ namespace autocarrs.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            AutosVehicle autosVehicle = await db.AutosVehicles.FindAsync(id);
-            db.AutosVehicles.Remove(autosVehicle);
+            AutosVehicle autosVehicle = await db.AutosVehiclesCrollers.FindAsync(id);
+            db.AutosVehiclesCrollers.Remove(autosVehicle);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

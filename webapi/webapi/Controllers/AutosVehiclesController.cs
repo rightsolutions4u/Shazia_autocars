@@ -58,12 +58,23 @@ namespace webapi.Controllers
             return A;
             
         }
+
+        // GET: api/AutosVehicles
+        //[HttpPost("SearchFeatures")]
+        //public async Task<ActionResult<IEnumerable<AutosFeatures>>> SearchFeatures
+        //    (AutosFeatures input, string feID1)
+        //{
+        //    return await _context.AutosFeatures.Where (a => a.FEATID= feID1).
+        //        ToListAsync();
+
+        //}
+
+
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
-        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars(AutosVehicle input/*, int PowerFrom, int PowerTo*//*, int FromMil, int ToMil*/)
-        {
-                       
-            return await _context.AutosVehicle.Where(a => a.IsSold != 1
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars
+            (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil)
+        {   return await _context.AutosVehicle.Where(a => a.IsSold != 1
                                   && a.IsReserved != 1 
                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
                                  && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
@@ -71,16 +82,15 @@ namespace webapi.Controllers
                                  && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
                                  && (input.Engine.Contains("x") || a.Engine == input.Engine)
                                  && (input.FuelType.Contains("x") || a.FuelType == input.FuelType)
-                                  //&& ((a.Power >= PowerFrom) && (a.Power <= PowerTo))
-                                  //&& ((input.Power == 0) || ((a.Power >= PowerFrom && a.Power <= PowerTo)))
-                                  //&& ((a.Mileag >= FromMil) && (a.Mileag <= ToMil))
-                                  //&& ((input.AutoId != 0) || a.AutoId == input.AutoId)
-                                  //&& ((input.Volume != 0) || a.Volume == input.Volume)
-                                 // && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
-                                 //&& ((input.AuYear == 0) || a.AuYear == input.AuYear)
-                                 //&& ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
-                                 //&& ((input.SellPri == 0) || a.SellPri == input.SellPri)
-                                 //&& ((input.Seater == 0) || a.Seater == input.Seater)
+                                 && ((PowerFrom == 0 || a.Power >= PowerFrom)
+                                 && (PowerTo == 0|| a.Power <= PowerFrom))
+                                 //&& ((input.Mileag == 0) || ((a.Mileag >= FromMil) && (a.Mileag <= ToMil)))
+                                 && ((input.Volume == 0) || a.Volume == input.Volume)
+                                  && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
+                                 && ((input.AuYear == 0) || a.AuYear == input.AuYear)
+                                 && ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
+                                 && ((input.SellPri == 0) || a.SellPri == input.SellPri)
+                                 && ((input.Seater == 0) || a.Seater == input.Seater)
                                  )
                                .Include(a => a.CarBody)
                                .Include(a => a.CarMake)
@@ -89,9 +99,6 @@ namespace webapi.Controllers
                                //.Include(a => a.AutosFeatures)
                                //  .ThenInclude(b => b.Vehiclefeatures)
                                .ToListAsync();
-
-            
-
         }
         // GET: api/AutosVehicles
         [HttpPost("SearchCars2")]

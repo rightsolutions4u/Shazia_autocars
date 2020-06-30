@@ -19,7 +19,7 @@ namespace autocarrs.Models
         {
         }
 
-        public System.Data.Entity.DbSet<autocarrs.Models.AutosVehicle> AutosVehicles { get; set; }
+        public System.Data.Entity.DbSet<autocarrs.Models.AutosVehicle> AutosVehiclesCrollers { get; set; }
 
         public System.Data.Entity.DbSet<autocarrs.Models.CarBody> CarBodies { get; set; }
 

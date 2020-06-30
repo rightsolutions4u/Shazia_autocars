@@ -1797,26 +1797,38 @@ nav.navbar {
   position: absolute;
   top:0;
 }
+.btn.instagram-btn, .btn.instagram-btn:hover {
+    background: #3F729B;
+}
+
+.btn.linkedin-btn, .btn.linkedin-btn:hover {
+    background: #007BB6;
+}
+
 .btn.facebook-btn, .btn.facebook-btn:hover {
-	background:#3c5a98;
+    background: #3c5a98;
 }
+
 .btn.twitter-btn, .btn.twitter-btn:hover {
-	background:#28bcec;
+    background: #28bcec;
 }
+
 .btn.googleplus-btn, .btn.googleplus-btn:hover {
-	background:#fe0000;
+    background: #fe0000;
 }
-.btn.facebook-btn, .btn.twitter-btn, .btn.googleplus-btn {
-  font-size: 17px;
-  font-weight: 400;
-  margin-bottom: 10px;
-  padding: 10px 22px;
-  text-align: left;
+
+.btn.facebook-btn, .btn.twitter-btn, .btn.googleplus-btn, .btn.instagram-btn, .btn.linkedin-btn {
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding: 10px 22px;
+    text-align: left;
 }
-.btn.facebook-btn i, .btn.twitter-btn i, .btn.googleplus-btn i { 
-	font-size:26px;
-	margin-right:10px;
-}
+
+    .btn.facebook-btn i, .btn.twitter-btn i, .btn.googleplus-btn i, .btn.instagram-btn i, btn.linkedin-btn i {
+        font-size: 26px;
+        margin-right: 10px;
+    }
 
 .gray_text {
 	color:#ccc;
