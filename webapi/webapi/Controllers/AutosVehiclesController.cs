@@ -58,27 +58,29 @@ namespace webapi.Controllers
             return A;
             
         }
-
-
-
-
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars(AutosVehicle input)
-        {
-            //Console.WriteLine(input);
-          // JArray j = JArray.Parse(input);
-          
-            //listOfControlsVM = db.Controls.Where((!status.HasValue || s.Status.Description == status) 
-            //&& (!impact.HasValue || s.Impact == impact)).ToList();
-            //Nullable <int> pmakeid= new Nullable<int>(1);
-            //Nullable<int> n1 = new Nullable<int>(10);
-            //var pmakeid = "3";
-            //var pmodelid = "3";
-            var A = await _context.AutosVehicle.Where(a => a.IsSold != 1
-                                  && a.IsReserved != 1
-                                 // && (String.IsNullOrEmpty(input.Brand) || a.MakeId == j.Brand)
-                                 //&& (String.IsNullOrEmpty(input.Series) || a.ModlId == j.Series)
+        {        
+            return await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                  && a.IsReserved != 1 
+                                 //&& a.MakeId == "3" && a.ModlId == "3"
+                                 && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
+                                 && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
+                                 && (input.Acolor.Contains("x") || a.Acolor == input.Acolor)
+                                 && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
+                                 && (input.Engine.Contains("x") || a.Engine == input.Engine)
+                                 && (input.FuelType.Contains("x") || a.FuelType == input.FuelType)
+
+                                  //&& (input.Mileag.Contains("x") || a.Mileag == input.Mileag)
+                                  //&& (input.Power.Contains("x") || a.Power == input.Power)
+                                  //&& ((input.AutoId != 0) || a.AutoId == input.AutoId)
+                                  //&& ((input.Volume != 0) || a.Volume == input.Volume)
+                                  && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
+                                 && ((input.AuYear == 0) || a.AuYear == input.AuYear)
+                                 && ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
+                                 && ((input.SellPri == 0) || a.SellPri == input.SellPri)
+                                 && ((input.Seater == 0) || a.Seater == input.Seater)
                                  )
                                .Include(a => a.CarBody)
                                .Include(a => a.CarMake)
@@ -88,20 +90,43 @@ namespace webapi.Controllers
                                //  .ThenInclude(b => b.Vehiclefeatures)
                                .ToListAsync();
 
-            return A;
+            
 
         }
-
-        //// GET: api/AutosVehicles
-        //[HttpGet("SearchCars")]
-        //public ActionResult<List<AutosVehicle>> SearchCars(string Sql)
-        //{
-        //    AutosVehicle AV = new AutosVehicle();
-        //    //Please right code here to send sql with where clause
-        //    return AV;
-
-        //}
         // GET: api/AutosVehicles
+        [HttpPost("SearchCars2")]
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars2(string pMakeId, string pModlId,
+                    string pAcolor)
+        {
+            return await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                  && a.IsReserved != 1 
+                                 //&& a.MakeId == "2" && a.ModlId == "3" 
+                                 && (string.IsNullOrEmpty(pAcolor) || a.Acolor == pAcolor)
+                                 && (string.IsNullOrEmpty(pMakeId) || a.MakeId == pMakeId)
+                                 && (string.IsNullOrEmpty(pModlId) || a.ModlId == pModlId)
+
+                                 //&& (string.IsNullOrEmpty(input.BodyId) || a.BodyId == input.BodyId)
+                                 //&& ((input.Cosumption != 0) || a.Cosumption == input.Cosumption)
+                                 //&& ((input.AutoId != 0) || a.AutoId == input.AutoId)
+                                 //&& ((input.AuYear != 0) || a.AuYear == input.AuYear)
+                                 //&& ((input.NoOfDoors != 0) || a.NoOfDoors == input.NoOfDoors)
+                                 //&& (string.IsNullOrEmpty(input.Engine) || a.Engine == input.Engine)
+                                 //&& (string.IsNullOrEmpty(input.FuelType) || a.FuelType == input.FuelType)
+                                 //&& (string.IsNullOrEmpty(input.Mileag) || a.Mileag == input.Mileag)
+                                 //&& (string.IsNullOrEmpty(input.Power) || a.Mileag == input.Power)
+                                 //&& ((input.Volume != 0) || a.Volume == input.Volume)
+                                 //&& ((input.SellPri != 0) || a.SellPri == input.SellPri)
+                                 //&& ((input.Seater != 0) || a.Seater == input.Seater)
+                                 )
+                               .Include(a => a.CarBody)
+                               .Include(a => a.CarMake)
+                               .Include(a => a.CarModel)
+                               .Include(a => a.CarCategory)
+                               //.Include(a => a.AutosFeatures)
+                               //  .ThenInclude(b => b.Vehiclefeatures)
+                               .ToListAsync();
+        }
+
         [HttpGet("GetTrendyAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()
         {

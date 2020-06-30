@@ -38,7 +38,7 @@ namespace webapi.Models
         public int Volume { get; set; }
         [StringLength(45)]
         public string Engine { get; set; }
-        public int Seater { get; set; }
+         public int Seater { get; set; }
         public int Cosumption { get; set; }
         public int NoOfDoors { get; set; }
         public int IsSold { get; set; }
@@ -64,7 +64,7 @@ namespace webapi.Models
         //Navigation property
         public CarCategory CarCategory { get; set; }
         public ICollection<AutosImages> AutosImages { get; set; }
-        //public ICollection<AutosFeatures> AutosFeatures { get; set; }
+        public ICollection<AutosFeatures> AutosFeatures { get; set; }
 
     }
 }

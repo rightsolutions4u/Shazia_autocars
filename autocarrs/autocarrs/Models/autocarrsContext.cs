@@ -30,5 +30,6 @@ namespace autocarrs.Models
         public System.Data.Entity.DbSet<autocarrs.Models.CarModel> CarModels { get; set; }
 
         public System.Data.Entity.DbSet<autocarrs.Models.AutosImages> AutosImages { get; set; }
+        public System.Data.Entity.DbSet<autocarrs.Models.AutosFeatuers> AutosFeatuers { get; set; }
     }
 }

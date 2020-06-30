@@ -252,6 +252,7 @@
     <Compile Include="Models\AdminUserRoles.cs" />
     <Compile Include="Models\autocarrsContext.cs" />
     <Compile Include="Models\AutosFeatuers.cs" />
+    <Compile Include="Models\AutosFeaturescs.cs" />
     <Compile Include="Models\AutosImages.cs" />
     <Compile Include="Models\AutosVehicle.cs" />
     <Compile Include="Models\AutosWithImages.cs" />

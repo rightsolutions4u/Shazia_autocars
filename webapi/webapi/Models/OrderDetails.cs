@@ -9,8 +9,8 @@ namespace webapi.Models
 {
     public class OrderDetails
     {
-        [StringLength(30)]
-        public string AutoID { get; set; }
+        
+        public int AutoId { get; set; }
         [StringLength(30)]
         public string BuyrID { get; set; }
         [StringLength(1)]

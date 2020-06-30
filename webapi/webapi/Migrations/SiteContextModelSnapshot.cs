@@ -97,6 +97,29 @@ namespace webapi.Migrations
                     b.ToTable("autosbuyer");
                 });
 
+            modelBuilder.Entity("webapi.Models.AutosFeatures", b =>
+                {
+                    b.Property<int>("AuFeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AuDesc")
+                        .HasMaxLength(70);
+
+                    b.Property<int>("AutoId");
+
+                    b.Property<int>("FEATID");
+
+                    b.Property<string>("VehiclefeaturesFEATID");
+
+                    b.HasKey("AuFeId");
+
+                    b.HasIndex("AutoId");
+
+                    b.HasIndex("VehiclefeaturesFEATID");
+
+                    b.ToTable("AutosFeatures");
+                });
+
             modelBuilder.Entity("webapi.Models.AutosImages", b =>
                 {
                     b.Property<int>("ImageID")
@@ -306,8 +329,7 @@ namespace webapi.Migrations
 
                     b.Property<DateTime>("TRDATE");
 
-                    b.Property<string>("AutoID")
-                        .HasMaxLength(30);
+                    b.Property<int>("AutoId");
 
                     b.Property<string>("BuyrID")
                         .HasMaxLength(30);
@@ -376,8 +398,7 @@ namespace webapi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(50);
 
-                    b.Property<int>("IsActive")
-                        .HasMaxLength(50);
+                    b.Property<int>("IsActive");
 
                     b.Property<int>("IsDeleted");
 
@@ -418,6 +439,18 @@ namespace webapi.Migrations
                     b.HasKey("FEATID");
 
                     b.ToTable("vehiclefeatures");
+                });
+
+            modelBuilder.Entity("webapi.Models.AutosFeatures", b =>
+                {
+                    b.HasOne("webapi.Models.AutosVehicle")
+                        .WithMany("AutosFeatures")
+                        .HasForeignKey("AutoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("webapi.Models.Vehiclefeatures", "Vehiclefeatures")
+                        .WithMany()
+                        .HasForeignKey("VehiclefeaturesFEATID");
                 });
 
             modelBuilder.Entity("webapi.Models.AutosImages", b =>

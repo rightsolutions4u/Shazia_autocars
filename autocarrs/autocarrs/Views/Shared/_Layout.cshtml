@@ -69,14 +69,7 @@
 
 </head>
 <body>
-    @* my changes to invoke getfeaturedautos by sm on jun 24 *@
-    <script>
-           $(document).ready(function () {
-              window.location.href = '@Url.Action("~/GetFeaturedAutos", "AutosVehicles")
-              })
-               
-        </script>
-    @* my changes end herf *@
+    
     <header>
         <div class="default-header">
             <div class="container">
@@ -216,38 +209,39 @@
                       <div class="row">
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <div class="select">
-                                <select class="form-control" name="Brand" ide="Brand">
-                                    <option value="">Select Brand</option>
-                                    <option value="Brand 1">1</option>
-                                    <option value="Brand 2">2</option>
-                                    <option value="Brand 3">3</option>
-                                    <option value="Brand 4">4</option>
+                                <select class="form-control" name="MakeId" id="MakeId">
+                                    <option value="x">Select Brand</option>
+                                    <option value="1">Audi</option>
+                                    <option value="2">Toyota</option>
+                                    <option value="3">Mercedes</option>
+                                    <option value="4">Honda</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <div class="select">
-                                <select class="form-control" name="CarModel" id="CarModel">
-                                    <option value="">Select Model</option>
-                                    <option value="Series 1">1</option>
-                                    <option value="Series 2">2</option>
-                                    <option value="Series 3">3</option>
+                                <select class="form-control" name="Modlid" id="Modlid">
+                                    <option value="x">Select Model</option>
+                                    <option value="1">Civic</option>
+                                    <option value="2">CR-V</option>
+                                    <option value="3">Corolla</option>
+                                    <option value="4">Highlander</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <div class="select" >
-                                <select class="form-control" name="AuYear" id="CarYear">
-                                    <option value="">Year of Model </option>
-                                    <option value="2016">2018</option>
-                                    <option value="2015">2019</option>
-                                    <option value="2014">2014</option>
+                                <select class="form-control" name="AuYear" id="AuYear">
+                                    <option value="0">Year of Model </option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-3 col-sm-6 black_input">
                             <label class="form-label">Price Range ($)</label>
-                            <input id="price_range" name="SellPri" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" />
+                            <input id="SellPri" name="SellPri" type="text" class="span2" value="0" data-slider-min="5000" data-slider-max="6000000" data-slider-step="5" data-slider-value="[1000,5000]" />
                         </div>
                         @*@Html.Partial("MakeModelYear");*@
                         <div class="form-group col-md-12 col-sm-6 black_input">
@@ -281,18 +275,18 @@
                                                         <div class="form-group col-md-7 col-sm-6 blue_input ">
                                                             <div class="select">
                                                                 <select class="form-control" name="Transmission" id="Transmission">
-                                                                    <option>Transmission</option>
-                                                                    <option>Automatic</option>
-                                                                    <option>Manual</option>
+                                                                    <option value="x">Transmission</option>
+                                                                    <option value="Automatic">Automatic</option>
+                                                                    <option value="Manual">Manual</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-5 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" name="Fuel" id="Fuel">
-                                                                    <option>Fuel</option>
-                                                                    <option>Diesel</option>
-                                                                    <option>hybrid</option>
+                                                                <select class="form-control" name="FuelType" id="FuelType">
+                                                                    <option value="x">Fuel</option>
+                                                                    <option value="Diesel">Diesel</option>
+                                                                    <option value="hybrid">hybrid</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -300,10 +294,12 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-6 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" name="Body" id="Body">
-                                                                    <option>Body</option>
-                                                                    <option>SUV</option>
-                                                                    <option>Pickup</option>
+                                                                <select class="form-control" name="BodyId" id="BodyId">
+                                                                    <option value="x"> Body</option>
+                                                                    <option value="1">SUV</option>
+                                                                    <option value="2">Hatchback></option>
+                                                                    <option value="3">Sedan></option>
+                                                                    <option value="4">Van></option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -324,7 +320,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="to" name="to" value="26,000,000" class="form-control">
+                                                                <input type="text" id="to" name="to" value="26000000" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -336,13 +332,13 @@
                                                     </div>
                                                     <div class="form-group col-md-3 col-sm-6 blue_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="4X4" name="4x4">
+                                                            <input type="checkbox" id="4X4" name="4x4" value="">
                                                             <label for="4X4">4X4</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-9 col-sm-6 black_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="vat deduction" name="vatdeduction">
+                                                            <input type="checkbox" id="vat deduction" name="vatdeduction" value="">
                                                             <label for="vat deduction">only with vat deduction</label>
                                                         </div>
                                                     </div>
@@ -354,7 +350,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="FromMil" name="FromMil" value="0.00" class="form-control">
+                                                                <input type="text" id="FromMil" name="FromMil" value="0" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -364,7 +360,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="ToMil" name="ToMil" value="150,000" class="form-control">
+                                                                <input type="text" id="Mileag" name="Mileag" value="0" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -377,7 +373,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="FromYear" name="FromYear" value="2019" class="form-control">
+                                                                <input type="text" id="FromYear" name="FromYear" value="x" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -387,7 +383,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="ToYear" name="ToYear" value="2020" class="form-control">
+                                                                <input type="text" id="ToYear" name="ToYear" value="x" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -407,36 +403,36 @@
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="PowerFrom" name="PowerFrom">
-                                                                    <option>Power from</option>
-                                                                    <option>70 kw</option>
-                                                                    <option>90 kw</option>
+                                                                    <option value="0">Power from</option>
+                                                                    <option value="70">70 kw</option>
+                                                                    <option value="90">90 kw</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="PowerTo" name="PowerTo">
-                                                                    <option>Power to</option>
-                                                                    <option>70 kw</option>
-                                                                    <option>90 kw</option>
+                                                                    <option value="0">Power to</option>
+                                                                    <option value="70">70 kw</option>
+                                                                    <option value="90">90 kw</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="Volume" name="Volume">
-                                                                    <option>Volume</option>
-                                                                    <option>1000-13000cc</option>
-                                                                    <option>13000-14000cc</option>
+                                                                    <option value="0">Volume</option>
+                                                                    <option value="13000">1000-13000cc</option>
+                                                                    <option value="14000">13000-14000cc</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="Engine" name="Engine">
-                                                                    <option>Engine</option>
-                                                                    <option>Automatic</option>
-                                                                    <option>Manual</option>
+                                                                    <option value="x">Engine</option>
+                                                                    <option value="Automatic">Automatic</option>
+                                                                    <option value="Manual">Manual</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -444,34 +440,34 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" id="Seats" name="Seats">
-                                                                    <option>Seats</option>
-                                                                    <option>5</option>
-                                                                    <option>8</option>
+                                                                <select class="form-control" id="Seater" name="Seater">
+                                                                    <option value="0">Seats</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="8">8</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" id="Consumption" name="Consumption">
-                                                                    <option>Avg Consumption</option>
-                                                                    <option>Up to 5l</option>
-                                                                    <option>Up to 8</option>
+                                                                <select class="form-control" id="Cosumption" name="Cosumption">
+                                                                    <option value="0">Avg Consumption</option>
+                                                                    <option value="5">Up to 5l</option>
+                                                                    <option value="8">Up to 8</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" id="Doors" name="Doors">
-                                                                    <option>Doors</option>
-                                                                    <option>4</option>
-                                                                    <option>2</option>
+                                                                <select class="form-control" id="NoOfDoors" name="NoOfDoors">
+                                                                    <option value="0">Doors</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="2">2</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <div class="form-group col-md-2 col-sm-6 blue_input">
+                                                        @*<div class="form-group col-md-2 col-sm-6 blue_input">
                                                             <h4 class="black_input">colors</h4>
                                                         </div>
                                                         <div class="form-group col-md-5 col-sm-6 blue_input">
@@ -484,22 +480,22 @@
                                                             <input type="checkbox" id="gold">
                                                             <input type="checkbox" id="black">
                                                             <input type="checkbox" id="yellow">
-                                                        </div>
+                                                        </div>*@
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
-                                                                <select class="form-control" id="Color" name="Color">
-                                                                    <option>Car color</option>
-                                                                    <option>green</option>
-                                                                    <option>blue</option>
-                                                                    <option>red</option>
-                                                                    <option>silver</option>
-                                                                    <option>beige</option>
-                                                                    <option>orange</option>
-                                                                    <option>black</option>
-                                                                    <option>gold</option>
-                                                                    <option>yellow</option>
-                                                                    <option>purple</option>
-                                                                    <option>mustard</option>
+                                                                <select class="form-control" id="Acolor" name="Acolor">
+                                                                    <option value="x">Car color</option>
+                                                                    <option value="green">green</option>
+                                                                    <option value="blue">blue</option>
+                                                                    <option value="red">red</option>
+                                                                    <option value="silver">silver</option>
+                                                                    <option value="beige">beige</option>
+                                                                    <option value="orange">orange</option>
+                                                                    <option value="black">black</option>
+                                                                    <option value="gold">gold</option>
+                                                                    <option value="yellow">yellow</option>
+                                                                    <option value="purple">purple</option>
+                                                                    <option value="mustard">mustard</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -754,7 +750,7 @@
                                 <div class="col-md-12 col-sm-6">
                                     @*<div class="form-group-brand row">*@
                                     <div class="form-group col-md-3 col-sm-6">
-                                        <div> <a href="#"> <img src="~/assets/images/Brands/acura-logo.png"> </a></div>
+                                        <div> <a href="#"> <img src="~/assets/images/Brands/tesla-logo.png"> </a></div>
                                     </div> <!--for this image-->
                                     <div class="form-group col-md-3 col-sm-6 ">
                                         <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>
@@ -769,13 +765,13 @@
                                 </div> <!--total space for this category container-->
                                 <div class="col-md-12 col-sm-6">
                                     <div class="form-group col-md-3 col-sm-6">
-                                        <div> <a href="#"> <img src="~/assets/images/Brands/ford-logo.png"> </a></div>
+                                        <div> <a href="#"> <img src="~/assets/images/Brands/acura-logo.png"> </a></div>
                                     </div> <!--for this image-->
                                     <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/honda-logo.png"> </a> </div>
+                                        <div> <a href="#"><img src="~/assets/images/Brands/mercedes-benz-logo.png"> </a> </div>
                                     </div> <!--for this image-->
                                     <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/hyundai-logo.png"> </a> </div>
+                                        <div> <a href="#"><img src="~/assets/images/Brands/Lexus-logo.png"> </a> </div>
                                     </div> <!--for this image-->
                                     <div class="form-group col-md-3 col-sm-6 ">
                                         <div> <a href="#"><img src="~/assets/images/Brands/jaguar-logo.png"> </a> </div>
