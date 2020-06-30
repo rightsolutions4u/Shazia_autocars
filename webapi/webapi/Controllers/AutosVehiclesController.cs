@@ -60,27 +60,27 @@ namespace webapi.Controllers
         }
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
-        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars(AutosVehicle input)
-        {        
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars(AutosVehicle input/*, int PowerFrom, int PowerTo*//*, int FromMil, int ToMil*/)
+        {
+                       
             return await _context.AutosVehicle.Where(a => a.IsSold != 1
                                   && a.IsReserved != 1 
-                                 //&& a.MakeId == "3" && a.ModlId == "3"
                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
                                  && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
                                  && (input.Acolor.Contains("x") || a.Acolor == input.Acolor)
                                  && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
                                  && (input.Engine.Contains("x") || a.Engine == input.Engine)
                                  && (input.FuelType.Contains("x") || a.FuelType == input.FuelType)
-
-                                  //&& (input.Mileag.Contains("x") || a.Mileag == input.Mileag)
-                                  //&& (input.Power.Contains("x") || a.Power == input.Power)
+                                  //&& ((a.Power >= PowerFrom) && (a.Power <= PowerTo))
+                                  //&& ((input.Power == 0) || ((a.Power >= PowerFrom && a.Power <= PowerTo)))
+                                  //&& ((a.Mileag >= FromMil) && (a.Mileag <= ToMil))
                                   //&& ((input.AutoId != 0) || a.AutoId == input.AutoId)
                                   //&& ((input.Volume != 0) || a.Volume == input.Volume)
-                                  && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
-                                 && ((input.AuYear == 0) || a.AuYear == input.AuYear)
-                                 && ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
-                                 && ((input.SellPri == 0) || a.SellPri == input.SellPri)
-                                 && ((input.Seater == 0) || a.Seater == input.Seater)
+                                 // && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
+                                 //&& ((input.AuYear == 0) || a.AuYear == input.AuYear)
+                                 //&& ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
+                                 //&& ((input.SellPri == 0) || a.SellPri == input.SellPri)
+                                 //&& ((input.Seater == 0) || a.Seater == input.Seater)
                                  )
                                .Include(a => a.CarBody)
                                .Include(a => a.CarMake)

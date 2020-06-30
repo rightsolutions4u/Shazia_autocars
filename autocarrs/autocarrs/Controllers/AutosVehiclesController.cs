@@ -38,16 +38,22 @@ namespace autocarrs.Controllers
 
             //dynamic mymodel= new ExpandoObject();
             //mymodel.SiteUsers.Login();
-
+          
             Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
+            //var form = new FormUrlEncodedContent(data.AllKeys.ToDictionary(k => k, v => data[v]));
+            //string[] keys = new string[form.Keys.Count];
+            //data1=form.Keys.CopyTo(keys, 0);
+
+            var qry = "PowerFrom="+ data["PowerFrom"] + "&PowerTo=" + data["PowerTo"] + "&FromMil=" + data["FromMil"] + "&ToMil="+ data["ToMil"];
+
             AutosVehicle autosVehicle = new AutosVehicle();
             var myContent = JsonConvert.SerializeObject(form);
            try
             {
-                var data1 = new StringContent(myContent,  Encoding.UTF8, "application/json");
+                var data1 = new StringContent( myContent,  Encoding.UTF8, "application/json");
                  var url = "https://localhost:44363/api/AutosVehicles/SearchCars";
                 var client = new HttpClient();
-               //  var dict = new FormUrlEncodedContent(form.AllKeys.ToDictionary(k => k, v => form[v]));
+               
                 var response = await client.PostAsync(url, data1);
                 var AutosSearch = response.Content.ReadAsStringAsync().Result;
                 AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosSearch);

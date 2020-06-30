@@ -25,16 +25,14 @@ namespace webapi.Models
         public string ZipCod { get; set; }
         [StringLength(45)]
         public string CnName { get; set; }
-        [StringLength(45)]
-        public string Mileag { get; set; }
+        public int Mileag { get; set; }
         public int SellPri { get; set; }
         public int AuYear { get; set; }
         [StringLength(45)]
         public string FuelType { get; set; }
         [StringLength(45)]
         public string Transmission { get; set; }
-        [StringLength(45)]
-        public string Power { get; set; }
+        public int Power { get; set; }
         public int Volume { get; set; }
         [StringLength(45)]
         public string Engine { get; set; }
