@@ -73,66 +73,49 @@ namespace webapi.Controllers
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars
-            (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil)
+            (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil, bool ABS
+            )
         {   return await _context.AutosVehicle.Where(a => a.IsSold != 1
-                                  && a.IsReserved != 1 
-                                 && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
+                                  && a.IsReserved != 1
+                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
                                  && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
                                  && (input.Acolor.Contains("x") || a.Acolor == input.Acolor)
                                  && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
                                  && (input.Engine.Contains("x") || a.Engine == input.Engine)
                                  && (input.FuelType.Contains("x") || a.FuelType == input.FuelType)
-                                 && ((PowerFrom == 0 || a.Power >= PowerFrom)
-                                 && (PowerTo == 0|| a.Power <= PowerFrom))
-                                 //&& ((input.Mileag == 0) || ((a.Mileag >= FromMil) && (a.Mileag <= ToMil)))
+                                 && ((PowerTo == 0) ||  (a.Power >= PowerFrom && a.Power <= PowerTo))
+                                 && ((ToMil == 0) || ((a.Mileag >= FromMil) && (a.Mileag <= ToMil)))
                                  && ((input.Volume == 0) || a.Volume == input.Volume)
-                                  && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
+                                 && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
                                  && ((input.AuYear == 0) || a.AuYear == input.AuYear)
                                  && ((input.NoOfDoors == 0) || a.NoOfDoors == input.NoOfDoors)
                                  && ((input.SellPri == 0) || a.SellPri == input.SellPri)
                                  && ((input.Seater == 0) || a.Seater == input.Seater)
                                  )
-                               .Include(a => a.CarBody)
-                               .Include(a => a.CarMake)
-                               .Include(a => a.CarModel)
-                               .Include(a => a.CarCategory)
-                               //.Include(a => a.AutosFeatures)
-                               //  .ThenInclude(b => b.Vehiclefeatures)
-                               .ToListAsync();
-        }
-        // GET: api/AutosVehicles
-        [HttpPost("SearchCars2")]
-        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars2(string pMakeId, string pModlId,
-                    string pAcolor)
-        {
-            return await _context.AutosVehicle.Where(a => a.IsSold != 1
-                                  && a.IsReserved != 1 
-                                 //&& a.MakeId == "2" && a.ModlId == "3" 
-                                 && (string.IsNullOrEmpty(pAcolor) || a.Acolor == pAcolor)
-                                 && (string.IsNullOrEmpty(pMakeId) || a.MakeId == pMakeId)
-                                 && (string.IsNullOrEmpty(pModlId) || a.ModlId == pModlId)
 
-                                 //&& (string.IsNullOrEmpty(input.BodyId) || a.BodyId == input.BodyId)
-                                 //&& ((input.Cosumption != 0) || a.Cosumption == input.Cosumption)
-                                 //&& ((input.AutoId != 0) || a.AutoId == input.AutoId)
-                                 //&& ((input.AuYear != 0) || a.AuYear == input.AuYear)
-                                 //&& ((input.NoOfDoors != 0) || a.NoOfDoors == input.NoOfDoors)
-                                 //&& (string.IsNullOrEmpty(input.Engine) || a.Engine == input.Engine)
-                                 //&& (string.IsNullOrEmpty(input.FuelType) || a.FuelType == input.FuelType)
-                                 //&& (string.IsNullOrEmpty(input.Mileag) || a.Mileag == input.Mileag)
-                                 //&& (string.IsNullOrEmpty(input.Power) || a.Mileag == input.Power)
-                                 //&& ((input.Volume != 0) || a.Volume == input.Volume)
-                                 //&& ((input.SellPri != 0) || a.SellPri == input.SellPri)
-                                 //&& ((input.Seater != 0) || a.Seater == input.Seater)
-                                 )
-                               .Include(a => a.CarBody)
-                               .Include(a => a.CarMake)
-                               .Include(a => a.CarModel)
-                               .Include(a => a.CarCategory)
-                               //.Include(a => a.AutosFeatures)
-                               //  .ThenInclude(b => b.Vehiclefeatures)
-                               .ToListAsync();
+        //        var customer = context.Customers.Where(c => c.CustomerID == 1)
+        //.Include(c => c.Invoices)
+        //.Where(c => c.Invoices.Any(i => i.Date >= fromDate))
+        //.FirstOrDefault();
+                                 .Include(a => a.AutosFeatures.Where(f => ((!ABS) || f.FEATID == "ABS")))
+                                 .ToListAsync();
         }
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCarsBrands
+            (string Brand)
+        {
+            //var qry = from V in _context.AutosVehicle
+            //          from M in _context.carmake
+            //          where M.MkDesc == Brand
+            //          select new { V, M }
+            //var result = qry.ToList();
+            //return result;
+
+            return await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                  && a.IsReserved != 1)
+                                  .Include(a => a.CarMake).SingleOrDefault(MdDec==Brand)
+                                  .ToListAsync();
+        }
+        
 
         [HttpGet("GetTrendyAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()

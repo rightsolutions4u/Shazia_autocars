@@ -350,7 +350,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="FromMil" name="FromMil" value="0" class="form-control">
+                                                                <input type="text" id="FromMil" name="FromMil" value=0 class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -360,7 +360,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-9 col-sm-6 blue_input">
                                                             <div class="form-group text">
-                                                                <input type="text" id="ToMil" name="ToMil" value="0" class="form-control">
+                                                                <input type="text" id="ToMil" name="ToMil" value=0 class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
@@ -403,7 +403,7 @@
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="PowerFrom" name="PowerFrom">
-                                                                    <option value="0">Power from</option>
+                                                                    <option value=0>Power from</option>
                                                                     <option value="40">40 kw</option>
                                                                     <option value="70">70 kw</option>
                                                                     <option value="90">90 kw</option>
@@ -413,7 +413,7 @@
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="select">
                                                                 <select class="form-control" id="PowerTo" name="PowerTo">
-                                                                    <option value="0">Power to</option>
+                                                                    <option value="">Power to</option>
                                                                     <option value="70">70 kw</option>
                                                                     <option value="90">90 kw</option>
                                                                 </select>
@@ -533,7 +533,7 @@
                                                         </div>
                                                         <div class="form-group col-md-2 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="4X41" name="4X41" value="4X41">
+                                                                <input type="checkbox" id="4wheel" name="4wheel" >
                                                                 <label for="4X41">4X4</label>
                                                             </div>
                                                         </div>
@@ -541,7 +541,7 @@
                                                     <div class="form-group row">
                                                         <div class="form-group col-md-3 col-sm-6 blue_input">
                                                             <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ABS" name="ABS">
+                                                                <input type="checkbox" id="ABS" name="ABS" >
                                                                 <label for="ABS">ABS</label>
                                                             </div>
                                                         </div>
@@ -751,7 +751,7 @@
                                 <div class="col-md-12 col-sm-6">
                                     @*<div class="form-group-brand row">*@
                                     <div class="form-group col-md-3 col-sm-6">
-                                        <div> <a href="#"> <img src="~/assets/images/Brands/tesla-logo.png"> </a></div>
+                                        <div> <a href="@Url.Action("SearchCarsBrands","AutosVehicles")" new { id = "Tesla" })> <img src="~/assets/images/Brands/tesla-logo.png">  </a></div>
                                     </div> <!--for this image-->
                                     <div class="form-group col-md-3 col-sm-6 ">
                                         <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>
