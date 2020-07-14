@@ -21,7 +21,7 @@ namespace webapi.Models
         public int AutoId { get; set; }
         //Navigation Property
         //public AutosVehicle AutosVehicle { get; set; }
-        public Vehiclefeatures Vehiclefeatures { get; set; }
+        //public Vehiclefeatures Vehiclefeatures { get; set; }
     }
 
     //public int Central { get; set; }

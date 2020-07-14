@@ -11,7 +11,7 @@ namespace webapi.Models
         [Key]
         public int ImageID { get; set; }
        //[Foreign key
-        public int AutosID { get; set; }
+        public int AutoId { get; set; }
         [StringLength(200)]
         public string ImgURL { get; set; }
     }

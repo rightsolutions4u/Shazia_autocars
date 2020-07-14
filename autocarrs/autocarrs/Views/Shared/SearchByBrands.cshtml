@@ -1,0 +1,45 @@
+﻿@model IEnumerable<autocarrs.Models.AutosVehicle>
+
+@if (Model != null)
+{<div class="section-header text-center">
+        <h2>Search Results <span></span></h2>
+
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            //if (@item.CarMake.MkDesc == ViewBag.mystring.ToString())
+            //{
+            <div class="col-list-3">
+                <div class="featured-car-list">
+                    <div class="featured-car-img">
+                        @*<a href=""><img src="~assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>*@
+                        <a href="~/assets/images/featured-img-01.jpg"><img src="~/assets/images/featured-img-01.jpg" class="img-fluid" alt="Image"></a>
+                        <div class="label_icon">New</div>
+                    </div>
+                    <div class="featured-car-content">
+                        @*<h6><a href="#">Car Name</a></h6>*@
+                        <div class="price_info">
+                            <p class="featured-price">$@item.SellPri</p>
+                            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> @item.StatNm, @item.CnName</span></div>
+                        </div>
+                        <ul>
+                            <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
+                            <li><i class="fa fa-tachometer" aria-hidden="true"></i>@item.Mileag miles</li>
+                            <li><i class="fa fa-calendar" aria-hidden="true"></i>@item.AuYear @item.CarModel.MdDesc</li>
+                            <li><i class="fa fa-car" aria-hidden="true"></i>@item.FuelType</li>
+                            <li><i class="fa fa-user" aria-hidden="true"></i>@item.Seater seats</li>
+                            <li><i class="fa fa-superpowers" aria-hidden="true"></i>@item.Power kW</li>
+                        </ul>
+                    </div>
+                    <input type="submit" value="Choose" id="Choose" class="login_btn" onclick="@Url.Action("Choose", "AutosVehicles")">
+                </div>
+            </div>
+            @*}*@
+        }
+    </div>
+
+}
+
+

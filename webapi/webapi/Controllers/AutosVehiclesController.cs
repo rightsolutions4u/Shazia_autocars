@@ -13,6 +13,8 @@ using webapi.Models;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using MySql.Data.MySqlClient;
+using webapi.Migrations;
 
 namespace webapi.Controllers
 {
@@ -31,59 +33,56 @@ namespace webapi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetAutosVehicle()
         {
-            var autosVehicle= await _context.AutosVehicle.Where(a =>  a.IsSold == 0
+            var autosVehicle = await _context.AutosVehicle.Where(a => a.IsSold == 0
                            )
                             .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
-                            //.Include(a => a.AutosImages.SingleOrDefault() )
+                            .Include(a => a.AutosImages)
+                            .Where(a => a.AutosImages.Any(f => f.AutoId == a.AutoId))
                             .ToListAsync();
             return autosVehicle;
         }
-       
-
         // GET: api/AutosVehicles
         [HttpGet("GetFeatuedAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetFeatuedAutos()
         {
             var A = await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
-                              && a.IsReserved != 1 && a.IsTrendy == 1 )
+                              && a.IsReserved != 1 && a.IsTrendy == 1)
                               .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
+                            .Include(a => a.AutosFeatures)
+                            .Include(a => a.AutosImages)
+                            //.Where(a => a.AutosImages.Any(f => f.AutosID == a.AutoId)
+                            //)
                             .ToListAsync();
-                      
+
+           
             return A;
-            
+
         }
-
-        // GET: api/AutosVehicles
-        //[HttpPost("SearchFeatures")]
-        //public async Task<ActionResult<IEnumerable<AutosFeatures>>> SearchFeatures
-        //    (AutosFeatures input, string feID1)
-        //{
-        //    return await _context.AutosFeatures.Where (a => a.FEATID= feID1).
-        //        ToListAsync();
-
-        //}
 
 
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars
-            (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil, bool ABS
-            )
-        {   return await _context.AutosVehicle.Where(a => a.IsSold != 1
-                                  && a.IsReserved != 1
-                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
+            (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil, string ABS , string fourwheel)
+        {
+
+            
+
+            var A= await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                 && a.IsReserved != 1
+                                 && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
                                  && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
                                  && (input.Acolor.Contains("x") || a.Acolor == input.Acolor)
                                  && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
                                  && (input.Engine.Contains("x") || a.Engine == input.Engine)
                                  && (input.FuelType.Contains("x") || a.FuelType == input.FuelType)
-                                 && ((PowerTo == 0) ||  (a.Power >= PowerFrom && a.Power <= PowerTo))
+                                 && ((PowerTo == 0) || (a.Power >= PowerFrom && a.Power <= PowerTo))
                                  && ((ToMil == 0) || ((a.Mileag >= FromMil) && (a.Mileag <= ToMil)))
                                  && ((input.Volume == 0) || a.Volume == input.Volume)
                                  && ((input.Cosumption == 0) || a.Cosumption == input.Cosumption)
@@ -92,30 +91,33 @@ namespace webapi.Controllers
                                  && ((input.SellPri == 0) || a.SellPri == input.SellPri)
                                  && ((input.Seater == 0) || a.Seater == input.Seater)
                                  )
-
-        //        var customer = context.Customers.Where(c => c.CustomerID == 1)
-        //.Include(c => c.Invoices)
-        //.Where(c => c.Invoices.Any(i => i.Date >= fromDate))
-        //.FirstOrDefault();
-                                 .Include(a => a.AutosFeatures.Where(f => ((!ABS) || f.FEATID == "ABS")))
-                                 .ToListAsync();
+                            .Include(a => a.CarBody)
+                            .Include(a => a.CarMake)
+                            .Include(a => a.CarModel)
+                            .Include(a => a.CarCategory)
+                            .Include(a => a.AutosFeatures)
+                            //.Where(a => a.AutosFeatures.Any(f =>  (ABS.Contains("x")||f.FEATID == ABS)
+                            //                                       && (fourwheel.Contains("x") || f.FEATID == fourwheel)
+                            //&&(f.AutoId==a.AutoId)))
+                           .ToListAsync();
+        return A;
         }
-        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCarsBrands
-            (string Brand)
+        [HttpGet("SearchCarsBrands")]
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCarsBrands(string Brand)
         {
-            //var qry = from V in _context.AutosVehicle
-            //          from M in _context.carmake
-            //          where M.MkDesc == Brand
-            //          select new { V, M }
-            //var result = qry.ToList();
-            //return result;
-
-            return await _context.AutosVehicle.Where(a => a.IsSold != 1
-                                  && a.IsReserved != 1)
-                                  .Include(a => a.CarMake).SingleOrDefault(MdDec==Brand)
-                                  .ToListAsync();
+            string Brand1 = "Toyota";
+            //return await _context.AutosVehicle.FromSql("GetAutosVehiclesBrands1) @whereclause",
+            //   new MySqlParameter("whereclause", Brand1)
+            //   ).ToListAsync();
+            var A = await _context.AutosVehicle.Where(a => a.IsSold != 1
+                                              && a.IsReserved != 1)
+                                             .Include(a => a.CarBody)
+                                             .Include(a => a.CarModel)
+                                             .Include(a => a.CarCategory)
+                                             .Include(a => a.CarMake).Where(f => f.CarMake.MkDesc== Brand1)
+                                             .ToListAsync();
+            return A;
         }
-        
 
         [HttpGet("GetTrendyAutos")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()

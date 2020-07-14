@@ -51,6 +51,8 @@ namespace webapi.Models
         public string BodyId { get; set; }
         // Foreign Key
         public string CatgId { get; set; }
+        [StringLength(2000)]
+        public string features { get; set; } //added to check in search
         // Foreign Key
         public string SellID { get; set; }
         //Navigation property

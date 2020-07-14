@@ -65,8 +65,7 @@
         }
     </style>
     @* Changes end here *@
-    
-
+   
 </head>
 <body>
     
@@ -203,595 +202,600 @@
     <!-- /Banners -->
     <!-- Filter-Form -->
     <section id="filter_form" class="gray-bg">
-       <form action="~/AutosVehicles/SearchCars" method="post">
-                <div class="container">
-                    <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
-                      <div class="row">
-                        <div class="form-group col-md-3 col-sm-6 black_input">
-                            <div class="select">
-                                <select class="form-control" name="MakeId" id="MakeId">
-                                    <option value="x">Select Brand</option>
-                                    <option value="1">Audi</option>
-                                    <option value="2">Toyota</option>
-                                    <option value="3">Mercedes</option>
-                                    <option value="4">Honda</option>
-                                </select>
+        <form id="search" action="~/AutosVehicles/SearchCars" method="post">
+            <div class="container">
+                <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6 black_input">
+                        <div class="select">
+                            <select class="form-control" name="MakeId" id="MakeId">
+                                <option value="x">Select Brand</option>
+                                <option value="1">Audi</option>
+                                <option value="2">Toyota</option>
+                                <option value="3">Mercedes</option>
+                                <option value="4">Honda</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6 black_input">
+                        <div class="select">
+                            <select class="form-control" name="Modlid" id="Modlid">
+                                <option value="x">Select Model</option>
+                                <option value="1">Civic</option>
+                                <option value="2">CR-V</option>
+                                <option value="3">Corolla</option>
+                                <option value="4">Highlander</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6 black_input">
+                        <div class="select">
+                            <select class="form-control" name="AuYear" id="AuYear">
+                                <option value="0">Year of Model </option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6 black_input">
+                        <label class="form-label">Price Range ($)</label>
+                        <input id="SellPri" name="SellPri" type="text" class="span2" value="0" data-slider-min="5000" data-slider-max="6000000" data-slider-step="5" data-slider-value="[1000,5000]" />
+                    </div>
+                    @*@Html.Partial("MakeModelYear");*@
+                    <div class="form-group col-md-12 col-sm-6 black_input">
+                        <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true" onclick="myfunc"></i> Search Car </button>
+                    </div>
+                    <!-- Added by SM on Jun 4-->
+                    <div class="form-group col-md-9 col-sm-6 black_input ">
+                        <button type="button" class="collapsible"> Advanced Search </button>
+                        <div class="content">
+                            <div class="tab-content">
+                                <div class="form-group col-md-12 col-sm-6 ">
+                                    <div class="recent-tab">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation"><a href="#mainparams" class="active" role="tab" data-toggle="tab">Main Parameters</a></li>
+                                            <li role="presentation"><a href="#otherparams" role="tab" data-toggle="tab">Other Parameters</a></li>
+                                            <li role="presentation"><a href="#gear" role="tab" data-toggle="tab">Gear</a></li>
+                                        </ul>
+                                        <div class="form-group col-md-4 col-sm-6 black_input">
+                                            <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade in active " id="mainparams">
+                                    <div class="login_wrap">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <h4 class="black_input">Main Parameters</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-7 col-sm-6 blue_input ">
+                                                        <div class="select">
+                                                            <select class="form-control" name="Transmission" id="Transmission">
+                                                                <option value="x">Transmission</option>
+                                                                <option value="Automatic">Automatic</option>
+                                                                <option value="Manual">Manual</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-5 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" name="FuelType" id="FuelType">
+                                                                <option value="x">Fuel</option>
+                                                                <option value="Diesel">Diesel</option>
+                                                                <option value="hybrid">hybrid</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-6 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" name="BodyId" id="BodyId">
+                                                                <option value="x"> Body</option>
+                                                                <option value="1">SUV</option>
+                                                                <option value="2">Hatchback></option>
+                                                                <option value="3">Sedan></option>
+                                                                <option value="4">Van></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h4 class="black_input">Price</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="from" name="from " value="0.00" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="from">from</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="to" name="to" value="26000000" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="to">to</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h4 class="black_input">Others</h4>
+                                                </div>
+                                                <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                    <div class="form-group checkbox">
+                                                        <input type="checkbox" id="4X4" name="4x4" value="">
+                                                        <label for="4X4">4X4</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-9 col-sm-6 black_input">
+                                                    <div class="form-group checkbox">
+                                                        <input type="checkbox" id="vat deduction" name="vatdeduction" value="">
+                                                        <label for="vat deduction">only with vat deduction</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <h4 class="black_input">Mileage</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="FromMil" name="FromMil" value=0 class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="fromMil">from</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="ToMil" name="ToMil" value=0 class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="toMil">to</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <h4 class="black_input">Year</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="FromYear" name="FromYear" value="x" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="fromyear">from</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-9 col-sm-6 blue_input">
+                                                        <div class="form-group text">
+                                                            <input type="text" id="ToYear" name="ToYear" value="x" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <label for="toyear">to</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mid_divider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="otherparams">
+                                    <div class="login_wrap">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-6">
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="PowerFrom" name="PowerFrom">
+                                                                <option value=0>Power from</option>
+                                                                <option value="40">40 kw</option>
+                                                                <option value="70">70 kw</option>
+                                                                <option value="90">90 kw</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="PowerTo" name="PowerTo">
+                                                                <option value="0">Power to</option>
+                                                                <option value="70">70 kw</option>
+                                                                <option value="90">90 kw</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="Volume" name="Volume">
+                                                                <option value="0">Volume</option>
+                                                                <option value="13000">1000-13000cc</option>
+                                                                <option value="14000">13000-14000cc</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="Engine" name="Engine">
+                                                                <option value="x">Engine</option>
+                                                                <option value="Automatic">Automatic</option>
+                                                                <option value="Manual">Manual</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="Seater" name="Seater">
+                                                                <option value="0">Seats</option>
+                                                                <option value="5">5</option>
+                                                                <option value="8">8</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="Cosumption" name="Cosumption">
+                                                                <option value="0">Avg Consumption</option>
+                                                                <option value="5">Up to 5l</option>
+                                                                <option value="8">Up to 8</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="NoOfDoors" name="NoOfDoors">
+                                                                <option value="0">Doors</option>
+                                                                <option value="4">4</option>
+                                                                <option value="2">2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    @*<div class="form-group col-md-2 col-sm-6 blue_input">
+                                <h4 class="black_input">colors</h4>
                             </div>
-                        </div>
-                        <div class="form-group col-md-3 col-sm-6 black_input">
-                            <div class="select">
-                                <select class="form-control" name="Modlid" id="Modlid">
-                                    <option value="x">Select Model</option>
-                                    <option value="1">Civic</option>
-                                    <option value="2">CR-V</option>
-                                    <option value="3">Corolla</option>
-                                    <option value="4">Highlander</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3 col-sm-6 black_input">
-                            <div class="select" >
-                                <select class="form-control" name="AuYear" id="AuYear">
-                                    <option value="0">Year of Model </option>
-                                    <option value="2018">2018</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2020">2020</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3 col-sm-6 black_input">
-                            <label class="form-label">Price Range ($)</label>
-                            <input id="SellPri" name="SellPri" type="text" class="span2" value="0" data-slider-min="5000" data-slider-max="6000000" data-slider-step="5" data-slider-value="[1000,5000]" />
-                        </div>
-                        @*@Html.Partial("MakeModelYear");*@
-                        <div class="form-group col-md-12 col-sm-6 black_input">
-                            <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car </button>
-                        </div>
-                        <!-- Added by SM on Jun 4-->
-                        <div class="form-group col-md-9 col-sm-6 black_input ">
-                            <button type="button" class="collapsible"> Advanced Search </button>
-                            <div class="content">
-                                <div class="tab-content">
-                                    <div class="form-group col-md-12 col-sm-6 ">
-                                        <div class="recent-tab">
-                                            <ul class="nav nav-tabs" role="tablist">
-                                                <li role="presentation"><a href="#mainparams" class="active" role="tab" data-toggle="tab">Main Parameters</a></li>
-                                                <li role="presentation"><a href="#otherparams" role="tab" data-toggle="tab">Other Parameters</a></li>
-                                                <li role="presentation"><a href="#gear" role="tab" data-toggle="tab">Gear</a></li>
-                                            </ul>
-                                            <div class="form-group col-md-4 col-sm-6 black_input">
-                                                <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                            <div class="form-group col-md-5 col-sm-6 blue_input">
+                                <input type="checkbox" id="green">
+                                <input type="checkbox" id="blue">
+                                <input type="checkbox" id="red">
+                                <input type="checkbox" id="silver">
+                                <input type="checkbox" id="beige">
+                                <input type="checkbox" id="orange">
+                                <input type="checkbox" id="gold">
+                                <input type="checkbox" id="black">
+                                <input type="checkbox" id="yellow">
+                            </div>*@
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="select">
+                                                            <select class="form-control" id="Acolor" name="Acolor">
+                                                                <option value="x">Car color</option>
+                                                                <option value="green">green</option>
+                                                                <option value="blue">blue</option>
+                                                                <option value="red">red</option>
+                                                                <option value="silver">silver</option>
+                                                                <option value="beige">beige</option>
+                                                                <option value="orange">orange</option>
+                                                                <option value="black">black</option>
+                                                                <option value="gold">gold</option>
+                                                                <option value="yellow">yellow</option>
+                                                                <option value="purple">purple</option>
+                                                                <option value="mustard">mustard</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade in active " id="mainparams">
-                                        <div class="login_wrap">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">Main Parameters</h4>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-7 col-sm-6 blue_input ">
-                                                            <div class="select">
-                                                                <select class="form-control" name="Transmission" id="Transmission">
-                                                                    <option value="x">Transmission</option>
-                                                                    <option value="Automatic">Automatic</option>
-                                                                    <option value="Manual">Manual</option>
-                                                                </select>
-                                                            </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="gear">
+                                    <div class="login_wrap">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-6">
+                                                <div class="form-group">
+                                                    <h4 class="black_input">In general</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="Central" name="Central">
+                                                            <label for="Central">central</label>
                                                         </div>
-                                                        <div class="form-group col-md-5 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" name="FuelType" id="FuelType">
-                                                                    <option value="x">Fuel</option>
-                                                                    <option value="Diesel">Diesel</option>
-                                                                    <option value="hybrid">hybrid</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-6 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" name="BodyId" id="BodyId">
-                                                                    <option value="x"> Body</option>
-                                                                    <option value="1">SUV</option>
-                                                                    <option value="2">Hatchback></option>
-                                                                    <option value="3">Sedan></option>
-                                                                    <option value="4">Van></option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">Price</h4>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="from" name="from " value="0.00" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="from">from</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="to" name="to" value="26000000" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="to">to</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">Others</h4>
                                                     </div>
                                                     <div class="form-group col-md-3 col-sm-6 blue_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="4X4" name="4x4" value="">
-                                                            <label for="4X4">4X4</label>
+                                                            <input type="checkbox" id="El.windows" name="El.windows">
+                                                            <label for="El.windows">el.windows</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-9 col-sm-6 black_input">
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
                                                         <div class="form-group checkbox">
-                                                            <input type="checkbox" id="vat deduction" name="vatdeduction" value="">
-                                                            <label for="vat deduction">only with vat deduction</label>
+                                                            <input type="checkbox" id="ParkingAssitant" name="ParkingAssitant">
+                                                            <label for="ParkingAssitant">parking assitant</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-2 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="fourwheel" name="fourwheel" value="fourwheel">
+                                                            @*<input type="hidden" id="fourwheel1" name="fourwheel" value="0">*@
+                                                            <label for="fourwheel">4X4</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">Mileage</h4>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="FromMil" name="FromMil" value=0 class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="fromMil">from</label>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+
+                                                            <input type="checkbox" id="ABS" name="ABS" value="ABS" @*onchange="myfunc"*@>
+                                                            @*<input type="hidden" id="ABS1" name="ABS" value="0" >*@
+                                                            <label for="ABS">ABS</label>
+
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="ToMil" name="ToMil" value=0 class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="toMil">to</label>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="AirCond" name="myarray" value="AirCond">
+                                                            <label for="AirCond">air cond.</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <h4 class="black_input">Year</h4>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="FromYear" name="FromYear" value="x" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="fromyear">from</label>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="CruiseControl" name="CruiseControl">
+                                                            <label for="CruiseControl">cruise control</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-9 col-sm-6 blue_input">
-                                                            <div class="form-group text">
-                                                                <input type="text" id="ToYear" name="ToYear" value="x" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <label for="toyear">to</label>
+                                                    <div class="form-group col-md-2 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="ESP" name="ESP">
+                                                            <label for="ESP">ESP</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="mid_divider"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="otherparams">
-                                        <div class="login_wrap">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6">
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="PowerFrom" name="PowerFrom">
-                                                                    <option value=0>Power from</option>
-                                                                    <option value="40">40 kw</option>
-                                                                    <option value="70">70 kw</option>
-                                                                    <option value="90">90 kw</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="PowerTo" name="PowerTo">
-                                                                    <option value="">Power to</option>
-                                                                    <option value="70">70 kw</option>
-                                                                    <option value="90">90 kw</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="Volume" name="Volume">
-                                                                    <option value="0">Volume</option>
-                                                                    <option value="13000">1000-13000cc</option>
-                                                                    <option value="14000">13000-14000cc</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="Engine" name="Engine">
-                                                                    <option value="x">Engine</option>
-                                                                    <option value="Automatic">Automatic</option>
-                                                                    <option value="Manual">Manual</option>
-                                                                </select>
-                                                            </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-6 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="Aut.Air" name="Aut.Air">
+                                                            <label for="Aut.Air">Aut.air conditioning</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="Seater" name="Seater">
-                                                                    <option value="0">Seats</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="8">8</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="Cosumption" name="Cosumption">
-                                                                    <option value="0">Avg Consumption</option>
-                                                                    <option value="5">Up to 5l</option>
-                                                                    <option value="8">Up to 8</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="NoOfDoors" name="NoOfDoors">
-                                                                    <option value="0">Doors</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="2">2</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        @*<div class="form-group col-md-2 col-sm-6 blue_input">
-                                                            <h4 class="black_input">colors</h4>
-                                                        </div>
-                                                        <div class="form-group col-md-5 col-sm-6 blue_input">
-                                                            <input type="checkbox" id="green">
-                                                            <input type="checkbox" id="blue">
-                                                            <input type="checkbox" id="red">
-                                                            <input type="checkbox" id="silver">
-                                                            <input type="checkbox" id="beige">
-                                                            <input type="checkbox" id="orange">
-                                                            <input type="checkbox" id="gold">
-                                                            <input type="checkbox" id="black">
-                                                            <input type="checkbox" id="yellow">
-                                                        </div>*@
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="select">
-                                                                <select class="form-control" id="Acolor" name="Acolor">
-                                                                    <option value="x">Car color</option>
-                                                                    <option value="green">green</option>
-                                                                    <option value="blue">blue</option>
-                                                                    <option value="red">red</option>
-                                                                    <option value="silver">silver</option>
-                                                                    <option value="beige">beige</option>
-                                                                    <option value="orange">orange</option>
-                                                                    <option value="black">black</option>
-                                                                    <option value="gold">gold</option>
-                                                                    <option value="yellow">yellow</option>
-                                                                    <option value="purple">purple</option>
-                                                                    <option value="mustard">mustard</option>
-                                                                </select>
-                                                            </div>
+                                                    <div class="form-group col-md-6 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="StopStartSystem" name="StopStartSystem">
+                                                            <label for="StopStartSystem">Stop Start System.</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="gear">
-                                        <div class="login_wrap">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6">
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">In general</h4>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <h4 class="black_input">Exterior</h4>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Central" name="Central">
-                                                                <label for="central">central</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="El.windows" name="El.windows">
-                                                                <label for="el.windows">el.windows</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ParkingAssitant" name="ParkingAssitant">
-                                                                <label for="parking assitant">parking assitant</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-2 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="4wheel" name="4wheel" >
-                                                                <label for="4X41">4X4</label>
-                                                            </div>
+                                                    <div class="form-group col-md-8 col-sm-6 blue_input">
+                                                        <h4 class="black_input">Interior</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="RoofRacks" name="RoofRacks">
+                                                            <label for="RoofRacks">roof racks</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ABS" name="ABS" >
-                                                                <label for="ABS">ABS</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="AirCond." name="AirCond">
-                                                                <label for="air cond.">air cond.</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="CruiseControl" name="CruiseControl">
-                                                                <label for="cruise control">cruise control</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-2 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ESP" name="ESP">
-                                                                <label for="ESP">ESP</label>
-                                                            </div>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="LeatherInterior" name="LeatherInterior">
+                                                            <label for="LeatherInterior">Leather Interior</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-6 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Aut.Air" name="Aut.Air">
-                                                                <label for="Aut.air cond.">Aut.air conditioning</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-6 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="StopStartSystem" name="StopStartSystem">
-                                                                <label for="Stop Start System">Stop Start System.</label>
-                                                            </div>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="PanoramicRoof" name="PanoramicRoof">
+                                                            <label for="PanoramicRoof">Panoramic roof</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <h4 class="black_input">Exterior</h4>
-                                                        </div>
-                                                        <div class="form-group col-md-8 col-sm-6 blue_input">
-                                                            <h4 class="black_input">Interior</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="RoofRacks" name="RoofRacks">
-                                                                <label for="roof racks">roof racks</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="LeatherInterior" name="LeatherInterior">
-                                                                <label for="Leather Interior">Leather Interior</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="PanoramicRoof" name="PanoramicRoof">
-                                                                <label for="Panoramic roof">Panoramic roof</label>
-                                                            </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="TowingDevice" name="TowingDevice">
+                                                            <label for="TowingDevice">towing device</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="TowingDevice" name="TowingDevice">
-                                                                <label for="towing device">towing device</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="HeatedSeats" name="HeatedSeats">
-                                                                <label for="Heated seats">Heated seats</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="ElSeats" name="ElSeats">
-                                                                <label for="el.seats">el.seats</label>
-                                                            </div>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="HeatedSeats" name="HeatedSeats">
+                                                            <label for="HeatedSeats">Heated seats</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="LEDXenon" name="LEDXenon">
-                                                                <label for="LED / Xenon">LED / Xenon</label>
-                                                            </div>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="ElSeats" name="ElSeats">
+                                                            <label for="ElSeats">el.seats</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <h4 class="black_input">Infotainment</h4>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Navigation" name="Navigation">
-                                                                <label for="Navigation">Navigation</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="Bluetooth" name="Bluetooth">
-                                                                <label for="Bluetooth Connecton">Bluetooth Connecton</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="AndroidAuto" name="AndroidAuto">
-                                                                <label for="Android Auto">Android Auto</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="AppleCarPlay" name="AppleCarPlay">
-                                                                <label for="Apple CarPlay">Apple CarPlay</label>
-                                                            </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="LEDXenon" name="LEDXenon">
+                                                            <label for="LEDXenon">LED / Xenon</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="MirrorLink" name="MirrorLink">
-                                                                <label for="Mirror Link">Mirror Link</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="PremiumAudioSystem" name="PremiumAudioSystem">
-                                                                <label for="Premium audio system">Premium audio system</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="TV" name="TV">
-                                                                <label for="TV">TV</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-2 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="VoiceControl" name="VoiceControl">
-                                                                <label for="Voice control of on-board system">Voice control of on-board system</label>
-                                                            </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h4 class="black_input">Infotainment</h4>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="Navigation" name="Navigation">
+                                                            <label for="Navigation">Navigation</label>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="HeadUp" name="HeadUp">
-                                                                <label for="Head up didsplay">Head up didsplay</label>
-                                                            </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="Bluetooth" name="Bluetooth">
+                                                            <label for="Bluetooth">Bluetooth Connecton</label>
                                                         </div>
-                                                        <div class="form-group col-md-3 col-sm-6 blue_input">
-                                                            <div class="form-group checkbox">
-                                                                <input type="checkbox" id="VirtualCockpit" name="VirtualCockpit">
-                                                                <label for="Virual cockpit">Virtual cockpit</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="AndroidAuto" name="AndroidAuto">
+                                                            <label for="AndroidAuto">Android Auto</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="AppleCarPlay" name="AppleCarPlay">
+                                                            <label for="AppleCarPlay">Apple CarPlay</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="MirrorLink" name="MirrorLink">
+                                                            <label for="MirrorLink">Mirror Link</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="PremiumAudioSystem" name="PremiumAudioSystem">
+                                                            <label for="PremiumAudioSystem">Premium audio system</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="TV" name="TV">
+                                                            <label for="TV">TV</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-2 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="VoiceControl" name="VoiceControl">
+                                                            <label for="VoiceControl">Voice control of on-board system</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="HeadUp" name="HeadUp">
+                                                            <label for="HeadUp">Head up didsplay</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3 col-sm-6 blue_input">
+                                                        <div class="form-group checkbox">
+                                                            <input type="checkbox" id="VirtualCockpit" name="VirtualCockpit">
+                                                            <label for="VirtualCockpit">Virtual cockpit</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <script>
-                                        var coll = document.getElementsByClassName("collapsible");
-                                        var i;
-
-                                        for (i = 0; i < coll.length; i++) {
-                                            coll[i].addEventListener("click", function () {
-                                                this.classList.toggle("active");
-                                                var content = this.nextElementSibling;
-                                                if (content.style.display === "block") {
-                                                    content.style.display = "none";
-                                                } else {
-                                                    content.style.display = "block";
-                                                }
-                                            });
-                                        }
-                                    </script>
-                                </div> <!--tab content class-->
-                            </div><!-- Added by SM on Jun 4 content div-->
-
-                            <!-- Added by SM on Jun 4 content div-->
-                        </div><!--advanced search-->
-                    </div>
-
-                </div> <!-- Filter->container-->
-                @*</section>*@
-                @* By SM on Jun 12-14, section-padding 2020 for further search *@
-                @*<section class="section-padding gray-bg">*@
-                <div class="container">
-                    <div class="section-header text-center">
-                        <h2> Search by<span></span></h2>
-                        <p>We have the largest selection of these categories in the entire Saudi Arabia</p>
-                    </div>
-                    <div class="recent-tab">
-                        <ul class="nav nav-tabs " role="tablist">
-                            <li role="presentation"><a href="#brands" class="active" role="tab" data-toggle="tab">Make/Brands</a></li>
-                            <li role="presentation"><a href="#categories" role="tab" data-toggle="tab">Category</a></li>
-                        </ul>
-                    </div>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active " id="brands">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-6">
-                                    @*<div class="form-group-brand row">*@
-                                    <div class="form-group col-md-3 col-sm-6">
-                                        <div> <a href="@Url.Action("SearchCarsBrands","AutosVehicles")" new { id = "Tesla" })> <img src="~/assets/images/Brands/tesla-logo.png">  </a></div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/bmw-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/ferrari-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                    @*</div>*@ <!--in one row group-->
-                                </div> <!--total space for this category container-->
-                                <div class="col-md-12 col-sm-6">
-                                    <div class="form-group col-md-3 col-sm-6">
-                                        <div> <a href="#"> <img src="~/assets/images/Brands/acura-logo.png"> </a></div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/mercedes-benz-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/Lexus-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                    <div class="form-group col-md-3 col-sm-6 ">
-                                        <div> <a href="#"><img src="~/assets/images/Brands/jaguar-logo.png"> </a> </div>
-                                    </div> <!--for this image-->
-                                </div> <!--total space for this category container-->
-
-                            </div>  <!--row-->
-                        </div> <!--brands-->
-                        <div role="tabpanel" class="tab-pane fade in active " id="categories">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-6">
-                                    @*<div class="form-group row">
-                                </div>*@
                                 </div>
-                            </div> <!--row-->
-                        </div>  <!--categories-->
-                    </div> <!--div tab-content-->
-                </div> <!--Container end-->
-            </form>
+                                <script>
+                                    var coll = document.getElementsByClassName("collapsible");
+                                    var i;
+
+                                    for (i = 0; i < coll.length; i++) {
+                                        coll[i].addEventListener("click", function () {
+                                            this.classList.toggle("active");
+                                            var content = this.nextElementSibling;
+                                            if (content.style.display === "block") {
+                                                content.style.display = "none";
+                                            } else {
+                                                content.style.display = "block";
+                                            }
+                                        });
+                                    }
+                                </script>
+                              
+                            </div> <!--tab content class-->
+                        </div><!-- Added by SM on Jun 4 content div-->
+                        <!-- Added by SM on Jun 4 content div-->
+                    </div><!--advanced search-->
+                </div>
+
+            </div> <!-- Filter->container-->
+            @*</section>*@
+            @* By SM on Jun 12-14, section-padding 2020 for further search *@
+            @*<section class="section-padding gray-bg">*@
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2> Search by<span></span></h2>
+                    <p>We have the largest selection of these categories in the entire Saudi Arabia</p>
+                </div>
+                <div class="recent-tab">
+                    <ul class="nav nav-tabs " role="tablist">
+                        <li role="presentation"><a href="#brands" class="active" role="tab" data-toggle="tab">Make/Brands</a></li>
+                        <li role="presentation"><a href="#categories" role="tab" data-toggle="tab">Category</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active " id="brands">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                @*<div class="form-group-brand row">*@
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <div> <a href="@Url.Action("SearchCarsBrands","AutosVehicles") new { id="Corolla" })"> <img src="~/assets/images/Brands/tesla-logo.png">  </a></div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/bmw-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/ferrari-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                                @*</div>*@ <!--in one row group-->
+                            </div> <!--total space for this category container-->
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <div> <a href="#"> <img src="~/assets/images/Brands/acura-logo.png"> </a></div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/mercedes-benz-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/Lexus-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                                <div class="form-group col-md-3 col-sm-6 ">
+                                    <div> <a href="#"><img src="~/assets/images/Brands/jaguar-logo.png"> </a> </div>
+                                </div> <!--for this image-->
+                            </div> <!--total space for this category container-->
+
+                        </div>  <!--row-->
+                    </div> <!--brands-->
+                    <div role="tabpanel" class="tab-pane fade in active " id="categories">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                @*<div class="form-group row">
+                            </div>*@
+                            </div>
+                        </div> <!--row-->
+                    </div>  <!--categories-->
+                </div> <!--div tab-content-->
+            </div> <!--Container end-->
+
+        </form>
 </section>
     <!-- /Filter-Form -->
     <!-- About -->
@@ -1208,7 +1212,7 @@
                 {
                     Html.RenderPartial("Featured_cars");
                 }
-                
+
                 else
                 {
 
@@ -1565,7 +1569,7 @@
                                     <div class="form-group">
                                         <input type="submit" value="Login" id="login" class="btn btn-block">
                                         <div class="form-group">
-                                           
+
                                             @if (Model is autocarrs.Models.Error)
                                             {
                                                 Html.RenderPartial("Error");

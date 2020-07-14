@@ -417,6 +417,7 @@
     <Content Include="Views\AutosVehicles\SearchView.cshtml" />
     <Content Include="Views\AutosVehicles\MainView.cshtml" />
     <Content Include="Views\Shared\FeaturedCars.cshtml" />
+    <Content Include="Views\Shared\SearchByBrands.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

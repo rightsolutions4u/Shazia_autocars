@@ -217,10 +217,17 @@
     <section class="section-padding">
         <div class="container">
             <div>
-                @{ 
-                    Html.RenderPartial("Featuredcars");
-                }
+                @if (ViewBag.mystring is null)
+                    
+                   {
+                        Html.RenderPartial("FeaturedCars");
+                   }
+                    
+                 else
+                    {
 
+                        Html.RenderPartial("SearchByBrands");
+                    }
             </div>
         </div>
     </section>

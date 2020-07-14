@@ -26,30 +26,5 @@ namespace webapi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-       // GET: api/AutosSearch
-    //   [HttpGet]
-    //    public ActionResult SearchCars(AutosSearch autosSearch, AutosVehicle autosVehicle)
-        
-    //    {
-
-    //        var query = _context.AutosVehicle
-    //     .Join(
-    //    _context.AutosFeatures,
-    //    AutosVehicle => AutosVehicle.AutoId,
-    //    AutosFeatures => AutosFeatures.AutoId,
-    //    (AutosVehicle, AutosFeatures) => new
-    //    {
-    //        AutosID = AutosVehicle.AutoId,
-    //        CustomerName = customer.FirstName + "" + customer.LastName,
-    //        InvoiceDate = invoice.Date
-    //}
-    //).ToList();
-    ////var  a = _context.AutosSearch.FromSql("SELECT * from AutosVehicle").ToList();
-
-
-    //        return query;
-    //    }
-
-
-    }
+      }
 }

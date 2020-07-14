@@ -35,11 +35,30 @@ namespace autocarrs.Controllers
         [HttpPost]
         public async Task<ActionResult> SearchCars(FormCollection data)
         {
-            var qry = "";
-            string ABS = data["ABS"];
+            var qry = "PowerFrom=" + data["PowerFrom"] + "&PowerTo=" + data["PowerTo"] + "&FromMil=" + data["FromMil"] + "&ToMil=" + data["ToMil"];
+            var ABS = data["ABS"];
+            if (ABS!=null)
+            {
+                qry=qry+"&ABS=" + data["ABS"];
+            }
+            else
+            {
+                ABS = "x";
+                qry = qry + "&ABS=" + ABS;
+            }
+            var fourwheel = data["fourwheel"];
+            if (fourwheel != null)
+            {
+                qry = qry + "&fourwheel=" + data["fourwheel"];
+            }
+            else
+            {
+                fourwheel = "x";
+                qry = qry + "&fourwheel=" + fourwheel;
+            }
 
             Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
-            qry = "PowerFrom=" + data["PowerFrom"] + "&PowerTo=" + data["PowerTo"] + "&FromMil=" + data["FromMil"] + "&ToMil=" + data["ToMil"] + "&ABS=" + data["ABS"];
+            
             AutosVehicle autosVehicle = new AutosVehicle();
             var myContent = JsonConvert.SerializeObject(form);
 
@@ -54,7 +73,7 @@ namespace autocarrs.Controllers
                  ViewBag.AutosVehicle = a;
                 return View("MainView", a);
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 Error err = new Error();
                 err.ErrorMessage = "Sorry we found no cars with these filters";
@@ -63,65 +82,8 @@ namespace autocarrs.Controllers
                 return View("Error", err);
             }
 
-
         }
-        [HttpPost]
-        public async Task<ActionResult> SearchCars2(FormCollection data)
-        {
-            string Baseurl = "https://localhost:44363/";
-            string Qry = "";
-            AutosVehicle autosVehicle = new AutosVehicle();
-            if (data["MakeId"] != null)
-            {
-                Qry = Qry + " and MakeId=" + data["MakeId"];
-            }
-            if (data["ModelId"] != null)
-            {
-                Qry = Qry + " and ModlId=" + data["ModelId"];
-            }
-            if (data["Acolor"] != null)
-            {
-                Qry = Qry + " and Acolor=" + data["Acolor"];
-            }
-            if (data["Acolor"] != null)
-            {
-                Qry = Qry + " and Acolor=" + data["Acolor"];
-            }
-            using (var client = new HttpClient())
-            {
-                //Passing service base url  
-                client.BaseAddress = new Uri(Baseurl);
-                var abc = Request.QueryString["UserId"];
-                client.DefaultRequestHeaders.Clear();
-                //Define request data format  
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                //Sending request to find web api REST service resource PostSiteUsers using HttpClient  
-                UriBuilder builder = new UriBuilder("https://localhost:44363/api/SiteUsers/CheckLogin?");
-                builder.Query = Qry;
-                HttpResponseMessage Res = await client.GetAsync(builder.Uri);
-                //Checking the response is successful or not which is sent using HttpClient  
-                if (Res.IsSuccessStatusCode)
-                {
-                    //Storing the response details recieved from web api   
-                    var searchCars = Res.Content.ReadAsStringAsync().Result;
-                    //Deserializing the response recieved from web api and storing into the Employee list  
-                    autosVehicle = JsonConvert.DeserializeObject<AutosVehicle>(searchCars);
-                    ViewBag.AutosVehicle = autosVehicle;
-                    ViewBag.Error = null;
-                    return View("MainView", autosVehicle);
-                }
-                else
-                {
-                    Error err = new Error();
-                    err.ErrorMessage = "Wrong UserId or Password";
-                    ViewBag.Error = err;
-                    ViewBag.SiteUsers = null;
-                    return View("Error", err);
-                }
-            }
-
-        }
+        
         // GET: AutosVehicles
         [HttpGet]
         public async Task<ActionResult> GetFeaturedAutos()
@@ -160,61 +122,43 @@ namespace autocarrs.Controllers
             }
         }
 
+
         // GET: AutosVehicles
         [HttpGet]
-        public async Task<ActionResult> SearchCarsBrands(string name)
+        public async Task<ActionResult> SearchCarsBrands(string name1)
         {
+            string name = "Corolla";
             AutosVehicle autosVehicle = new AutosVehicle();
-           try
-            using (var client = new HttpClient())
+           using (var client = new HttpClient())
             {
                 //Passing service base url  
                client.DefaultRequestHeaders.Clear();
                 //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
                 //Sending request to find web api REST service resource PostSiteUsers using HttpClient  
                 UriBuilder builder = new UriBuilder("https://localhost:44363/api/AutosVehicles/SearchCarsBrands?");
-
-                //builder.Query = "id=mars&UserPassword=mars";
-
-                builder.Query = "id=" + name ;
+                builder.Query = "Brand=" + name1 ;
                 HttpResponseMessage Res = await client.GetAsync(builder.Uri);
-                //Checking the response is successful or not which is sent using HttpClient  
-                if (Res.IsSuccessStatusCode)
-                {
-                    //Storing the response details recieved from web api   
+                  if (Res.IsSuccessStatusCode)
+                    {
                     var Brand = Res.Content.ReadAsStringAsync().Result;
-
                     //Deserializing the response recieved from web api and storing into the Employee list  
-                    autosVehicle = JsonConvert.DeserializeObject<AutosVehicle>(Brand);
-                    ViewBag.AutosVehicle = autosVehicle;
+                    AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(Brand);
+                    ViewBag.AutosVehicle = a;
+                    ViewBag.mystring= name;
                     ViewBag.Error = null;
-                    return View("MainView", autosVehicle);
-                }
+                    return View("MainView", a);
+                    }
                 else
-                {
+                    {
                     Error err = new Error();
-                    err.ErrorMessage = "Sorry no cars found for"+ name;
+                    err.ErrorMessage = "Sorry no cars found for"+ name + "Brand";
                     ViewBag.Error = err;
                     ViewBag.AutosVehicle = null;
                     return View("Error", err);
-                }
-            }
-
-            }
-            }
-            catch
-            {
-                Error err = new Error();
-                err.ErrorMessage = "All our cars are Featured cars";
-                ViewBag.Error = err;
-                ViewBag.AutosVehicle = null;
-                return View("Error", err);
+                    }
             }
         }
-
-
         // GET: AutosVehicles/Details/5
         public async Task<ActionResult> Details(int? id)
         {
