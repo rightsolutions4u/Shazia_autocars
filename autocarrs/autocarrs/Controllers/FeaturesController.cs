@@ -50,7 +50,7 @@ namespace autocarrs.Controllers
                 ViewBag.AutosVehicle = a;
                 return ViewBag.AutosVehicle = a;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 Error err = new Error();
                 err.ErrorMessage = "Sorry we found no cars with these filters";
@@ -79,7 +79,7 @@ namespace autocarrs.Controllers
                 ViewBag.AutosSearch = a;
                 return ViewBag.AutosSearch = a;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 Error err = new Error();
                 err.ErrorMessage = "Sorry we found no cars with these filters";

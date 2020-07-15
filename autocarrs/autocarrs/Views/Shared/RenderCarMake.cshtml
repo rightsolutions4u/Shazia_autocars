@@ -1,0 +1,16 @@
+﻿@model IEnumerable<autocarrs.Models.CarMake>
+@{ Layout=null};
+@if (Model != null)
+{
+    <div class="form-group col-md-3 col-sm-6 black_input">
+        <div class="select">
+            <select class="form-control" name="MakeId" id="MakeId">
+                <option value="x">Select Brand</option>
+                @foreach (var item in Model)
+                {
+                    <option value=@item.MakeId>@item.MkDesc</option>
+                }
+            </select>
+        </div>
+    </div>
+}

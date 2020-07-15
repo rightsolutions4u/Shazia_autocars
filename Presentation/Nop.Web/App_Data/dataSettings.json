@@ -1,5 +1,0 @@
-﻿{
-  "DataConnectionString": "Data Source=DESKTOP-TG871HS;Initial Catalog=nopCommerce;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=Aug31999_1",
-  "DataProvider": "sqlserver",
-  "RawDataSettings": {}
-}

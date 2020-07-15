@@ -208,15 +208,27 @@
                 <div class="row">
                     <div class="form-group col-md-3 col-sm-6 black_input">
                         <div class="select">
-                            <select class="form-control" name="MakeId" id="MakeId">
-                                <option value="x">Select Brand</option>
-                                <option value="1">Audi</option>
-                                <option value="2">Toyota</option>
-                                <option value="3">Mercedes</option>
-                                <option value="4">Honda</option>
-                            </select>
+                            @*@{
+
+                                Html.RenderAction("GetCarMake", "CarMakes");
+                                
+
+                            }*@
+                            @*<select class="form-control" name="MakeId" id="MakeId">
+            <option value="x">Select Brand</option>
+            <option value="1">Audi</option>
+            <option value="2">Toyota</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Honda</option>
+        </select>*@
                         </div>
-                    </div>
+        </div>
+                    @*@if (Model is autocarrs.Models.CarMake)
+                    {
+                        Html.RenderPartial("RenderCarMake");
+                         
+                    }*@
+                    
                     <div class="form-group col-md-3 col-sm-6 black_input">
                         <div class="select">
                             <select class="form-control" name="Modlid" id="Modlid">
@@ -468,19 +480,19 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     @*<div class="form-group col-md-2 col-sm-6 blue_input">
-                                <h4 class="black_input">colors</h4>
-                            </div>
-                            <div class="form-group col-md-5 col-sm-6 blue_input">
-                                <input type="checkbox" id="green">
-                                <input type="checkbox" id="blue">
-                                <input type="checkbox" id="red">
-                                <input type="checkbox" id="silver">
-                                <input type="checkbox" id="beige">
-                                <input type="checkbox" id="orange">
-                                <input type="checkbox" id="gold">
-                                <input type="checkbox" id="black">
-                                <input type="checkbox" id="yellow">
-                            </div>*@
+                                            <h4 class="black_input">colors</h4>
+                                        </div>
+                                        <div class="form-group col-md-5 col-sm-6 blue_input">
+                                            <input type="checkbox" id="green">
+                                            <input type="checkbox" id="blue">
+                                            <input type="checkbox" id="red">
+                                            <input type="checkbox" id="silver">
+                                            <input type="checkbox" id="beige">
+                                            <input type="checkbox" id="orange">
+                                            <input type="checkbox" id="gold">
+                                            <input type="checkbox" id="black">
+                                            <input type="checkbox" id="yellow">
+                                        </div>*@
                                                     <div class="form-group col-md-3 col-sm-6 blue_input">
                                                         <div class="select">
                                                             <select class="form-control" id="Acolor" name="Acolor">
@@ -726,7 +738,7 @@
                                         });
                                     }
                                 </script>
-                              
+
                             </div> <!--tab content class-->
                         </div><!-- Added by SM on Jun 4 content div-->
                         <!-- Added by SM on Jun 4 content div-->
@@ -754,7 +766,7 @@
                             <div class="col-md-12 col-sm-6">
                                 @*<div class="form-group-brand row">*@
                                 <div class="form-group col-md-3 col-sm-6">
-                                    <div> <a href="@Url.Action("SearchCarsBrands","AutosVehicles") new { id="Corolla" })"> <img src="~/assets/images/Brands/tesla-logo.png">  </a></div>
+                                    <div> <a href="@Url.Action("SearchCarsBrands","AutosVehicles", new { brand="Toyota"})"> <img src="~/assets/images/Brands/tesla-logo.png">  </a></div>
                                 </div> <!--for this image-->
                                 <div class="form-group col-md-3 col-sm-6 ">
                                     <div> <a href="#"><img src="~/assets/images/Brands/audi-logo.png"> </a> </div>

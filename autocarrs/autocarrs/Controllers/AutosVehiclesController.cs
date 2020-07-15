@@ -31,7 +31,7 @@ namespace autocarrs.Controllers
             return View(await autosVehicles.ToListAsync());
         }
 
-        //GET: AutosVehicles
+        //GET: SearchCars
         [HttpPost]
         public async Task<ActionResult> SearchCars(FormCollection data)
         {
@@ -83,8 +83,8 @@ namespace autocarrs.Controllers
             }
 
         }
-        
-        // GET: AutosVehicles
+
+        // GET: GetFeaturedAutos
         [HttpGet]
         public async Task<ActionResult> GetFeaturedAutos()
         {
@@ -123,11 +123,11 @@ namespace autocarrs.Controllers
         }
 
 
-        // GET: AutosVehicles
+        // GET: SearchCarsBrands
         [HttpGet]
-        public async Task<ActionResult> SearchCarsBrands(string name1)
+        public async Task<ActionResult> SearchCarsBrands(string brand)
         {
-            string name = "Corolla";
+            
             AutosVehicle autosVehicle = new AutosVehicle();
            using (var client = new HttpClient())
             {
@@ -137,7 +137,7 @@ namespace autocarrs.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 //Sending request to find web api REST service resource PostSiteUsers using HttpClient  
                 UriBuilder builder = new UriBuilder("https://localhost:44363/api/AutosVehicles/SearchCarsBrands?");
-                builder.Query = "Brand=" + name1 ;
+                builder.Query = "Brand=" + brand ;
                 HttpResponseMessage Res = await client.GetAsync(builder.Uri);
                   if (Res.IsSuccessStatusCode)
                     {
@@ -145,14 +145,15 @@ namespace autocarrs.Controllers
                     //Deserializing the response recieved from web api and storing into the Employee list  
                     AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(Brand);
                     ViewBag.AutosVehicle = a;
-                    ViewBag.mystring= name;
+                    ViewBag.mystring= brand;
                     ViewBag.Error = null;
-                    return View("MainView", a);
+                    //return View("MainView", a);
+                    return Json(a);
                     }
                 else
                     {
                     Error err = new Error();
-                    err.ErrorMessage = "Sorry no cars found for"+ name + "Brand";
+                    err.ErrorMessage = "Sorry no cars found for"+ brand + "Brand";
                     ViewBag.Error = err;
                     ViewBag.AutosVehicle = null;
                     return View("Error", err);

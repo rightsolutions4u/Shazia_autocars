@@ -22,7 +22,7 @@ namespace webapi.Controllers
         }
 
         // GET: api/CarMakes
-        [HttpGet]
+        [HttpGet("Getcarmake")]
         public async Task<ActionResult<IEnumerable<CarMake>>> Getcarmake()
         {
             return await _context.carmake.ToListAsync();

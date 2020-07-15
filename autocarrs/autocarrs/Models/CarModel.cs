@@ -14,4 +14,5 @@ namespace autocarrs.Models
         [StringLength(100)]
         public string MdDesc { get; set; }
     }
+    
 }

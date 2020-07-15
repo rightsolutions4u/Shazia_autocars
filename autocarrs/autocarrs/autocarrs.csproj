@@ -245,8 +245,10 @@
     <Compile Include="Controllers\AutosFeaturesController.cs" />
     <Compile Include="Controllers\AutosImagesController.cs" />
     <Compile Include="Controllers\AutosVehiclesController.cs" />
+    <Compile Include="Controllers\CarMakesController.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -264,6 +266,7 @@
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\FaceBookUser.cs" />
+    <Compile Include="Models\Load.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\OrderMaster.cs" />
     <Compile Include="Models\SiteContext.cs" />
@@ -413,17 +416,23 @@
     <Content Include="Views\Account\LoginWithFaceBook.cshtml" />
     <Content Include="Views\Account\FaceBookLogin.cshtml" />
     <Content Include="Views\Shared\Welcome.cshtml" />
-    <Content Include="Views\Shared\Featured_cars.cshtml" />
+    <Content Include="Views\Shared\Featured_cars_1.cshtml" />
     <Content Include="Views\AutosVehicles\SearchView.cshtml" />
     <Content Include="Views\AutosVehicles\MainView.cshtml" />
     <Content Include="Views\Shared\FeaturedCars.cshtml" />
     <Content Include="Views\Shared\SearchByBrands.cshtml" />
+    <Content Include="Views\Shared\RenderCarMake.cshtml" />
+    <Content Include="Views\Shared\Featured_cars.cshtml" />
+    <Content Include="Views\Shared\LoadView.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AutosFeatures\" />
     <Folder Include="Views\AutosImages\" />
+    <Folder Include="Views\CarMakes\" />
     <Folder Include="Views\Features\" />
+    <Folder Include="Views\Load\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

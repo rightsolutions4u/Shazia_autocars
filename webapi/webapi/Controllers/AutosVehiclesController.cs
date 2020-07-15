@@ -105,7 +105,7 @@ namespace webapi.Controllers
         [HttpGet("SearchCarsBrands")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCarsBrands(string Brand)
         {
-            string Brand1 = "Toyota";
+            
             //return await _context.AutosVehicle.FromSql("GetAutosVehiclesBrands1) @whereclause",
             //   new MySqlParameter("whereclause", Brand1)
             //   ).ToListAsync();
@@ -114,7 +114,7 @@ namespace webapi.Controllers
                                              .Include(a => a.CarBody)
                                              .Include(a => a.CarModel)
                                              .Include(a => a.CarCategory)
-                                             .Include(a => a.CarMake).Where(f => f.CarMake.MkDesc== Brand1)
+                                             .Include(a => a.CarMake).Where(f => f.CarMake.MkDesc== Brand)
                                              .ToListAsync();
             return A;
         }
