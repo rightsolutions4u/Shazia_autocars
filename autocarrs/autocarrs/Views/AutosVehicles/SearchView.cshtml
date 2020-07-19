@@ -70,7 +70,7 @@
 
 </head>
 <body>
-       <header>
+    <header>
         <div class="default-header">
             <div class="container">
                 <div class="row">
@@ -189,6 +189,24 @@
             <div class="div_zindex">
                 <div class="row">
                     <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <h2>@ViewBag.Search</h2>
+        <<!--div class="banner_content">
+            <h1>Find the right car for you.</h1>
+            <p>We have more than a thousand cars for you to choose. </p>
+            <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+        </div>-->
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- search Result -->
+    <section id="banner" class="banner-section">
+        <div class="container">
+            <div class="div_zindex">
+                <div class="row">
+                    <div class="col-md-7"></div>
                     <!--<div class="col-md-5">
                         <div class="banner_content">
                             <h1>Find the right car for you.</h1>
@@ -200,49 +218,41 @@
             </div>
         </div>
     </section>
-    <!-- /Banners -->
+    <!-- /search Result -->
     <!-- Filter-Form -->
-    
     <!-- /Filter-Form -->
     <!-- About -->
-   
     <!-- /About -->
     <!-- Resent Cat-->
-    
     <!-- /Resent Cat -->
     <!-- Fun Facts-->
-    
     <!-- /Fun Facts-->
     <!--Featured Car-->
     <section class="section-padding">
         <div class="container">
             <div>
                 @if (ViewBag.mystring is null)
-                    
-                   {
-                        Html.RenderPartial("FeaturedCars");
-                   }
-                    
-                 else
-                    {
 
-                        Html.RenderPartial("SearchByBrands");
-                    }
+                {
+                    Html.RenderPartial("FeaturedCars");
+                }
+
+                else
+                {
+
+                    Html.RenderPartial("SearchByBrands");
+                }
             </div>
         </div>
     </section>
     <!-- /Featured Car-->
     <!--Trending Car-->
-    
     <!-- /Trending Car-->
     <!--Testimonial -->
-    
     <!-- /Testimonial-->
     <!--Blog -->
-    
     <!-- /Blog-->
     <!--Brands-->
-    
     <!-- /Brands-->
     <!--Footer -->
     <footer>

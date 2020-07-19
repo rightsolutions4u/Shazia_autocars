@@ -70,7 +70,8 @@ namespace autocarrs.Controllers
                 var response = await client.PostAsync(url, data1);
                 var AutosSearch = response.Content.ReadAsStringAsync().Result;
                 AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosSearch);
-                 ViewBag.AutosVehicle = a;
+                ViewBag.AutosVehicle = a;
+                ViewBag.Search = data;
                 return View("MainView", a);
             }
             catch (Exception )
@@ -147,8 +148,8 @@ namespace autocarrs.Controllers
                     ViewBag.AutosVehicle = a;
                     ViewBag.mystring= brand;
                     ViewBag.Error = null;
-                    //return View("MainView", a);
-                    return Json(a);
+                    return View("MainView", a);
+                    //return Json(a);
                     }
                 else
                     {

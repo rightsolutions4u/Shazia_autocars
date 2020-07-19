@@ -22,12 +22,23 @@ namespace webapi.Controllers
         }
 
         // GET: api/CarModels
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarModel>>> Getcarmodel()
+        [HttpGet("GetcarmodelbyMake")]
+        public async Task<ActionResult<IEnumerable<CarModel>>> GetcarmodelbyMake(string MakeID)
         {
-            return await _context.carmodel.ToListAsync();
+            var A= await _context.carmodel.Where(e => e.MakeId == MakeID)
+            .ToListAsync();
+            return (A);
+           
         }
-
+        //// GET: api/CarModels
+        //[HttpGet]
+        //public JsonResult Getcarmodelbymake(string MakeID)
+        //{
+        //    var A =  _context.carmodel.Where(e => e.MakeId == MakeID)
+        //    .ToList();
+        //    return Ok(A);
+                
+        //}
         // GET: api/CarModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CarModel>> GetCarModel(string id)

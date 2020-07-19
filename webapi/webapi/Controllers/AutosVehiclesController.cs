@@ -49,7 +49,7 @@ namespace webapi.Controllers
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetFeatuedAutos()
         {
             var A = await _context.AutosVehicle.Where(a => a.IsFeatured == 1 && a.IsSold != 1
-                              && a.IsReserved != 1 && a.IsTrendy == 1)
+                              && a.IsReserved != 1 && a.IsTrendy != 1)
                               .Include(a => a.CarBody)
                             .Include(a => a.CarMake)
                             .Include(a => a.CarModel)
@@ -64,17 +64,33 @@ namespace webapi.Controllers
             return A;
 
         }
+        // GET: api/AutosVehicles
+        [HttpGet("GetTrendyAutos")]
+        public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()
+        {
+            //sold cars are trendy
+            var A = await _context.AutosVehicle.Where(a => a.IsFeatured != 1 && a.IsSold == 1
+                              && a.IsReserved != 1 && a.IsTrendy == 1)
+                              .Include(a => a.CarBody)
+                            .Include(a => a.CarMake)
+                            .Include(a => a.CarModel)
+                            .Include(a => a.CarCategory)
+                            .Include(a => a.AutosFeatures)
+                            //.Include(a => a.AutosImages).Where(a => a.AutosImages.Any(f => f.AutoId == a.AutoId)
+                            //)
+                            .ToListAsync();
 
+
+            return A;
+
+        }
 
         // GET: api/AutosVehicles
         [HttpPost("SearchCars")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCars
             (AutosVehicle input, int PowerFrom, int PowerTo, int FromMil, int ToMil, string ABS , string fourwheel)
         {
-
-            
-
-            var A= await _context.AutosVehicle.Where(a => a.IsSold != 1
+           var A= await _context.AutosVehicle.Where(a => a.IsSold != 1
                                  && a.IsReserved != 1
                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
                                  && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
@@ -119,18 +135,7 @@ namespace webapi.Controllers
             return A;
         }
 
-        [HttpGet("GetTrendyAutos")]
-        public async Task<ActionResult<IEnumerable<AutosVehicle>>> GetTrendyAutos()
-        {
-            return await _context.AutosVehicle.Where(a => a.IsFeatured != 1 && a.IsSold != 1
-                            && a.IsReserved == 1 && a.IsTrendy == 1)
-                            .Include(a => a.CarBody)
-                            .Include(a => a.CarMake)
-                            .Include(a => a.CarModel)
-                            .Include(a => a.CarCategory)
-                            .ToListAsync();
-
-        }
+        
         // GET: api/AutosVehicles/5
         [HttpGet("GetAutosVehicle/{id}")]
         public async Task<ActionResult<AutosVehicle>> GetAutosVehicle(int id)

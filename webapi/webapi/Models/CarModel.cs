@@ -13,5 +13,8 @@ namespace webapi.Models
         public string ModlId { get; set; }
         [StringLength(100)]
         public string MdDesc { get; set; }
+        //[Foreign key
+        public string MakeId { get; set; }
+      
     }
 }

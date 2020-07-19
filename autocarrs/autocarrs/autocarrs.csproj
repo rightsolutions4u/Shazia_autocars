@@ -269,6 +269,7 @@
     <Compile Include="Models\Load.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\OrderMaster.cs" />
+    <Compile Include="Models\Search.cs" />
     <Compile Include="Models\SiteContext.cs" />
     <Compile Include="Models\SiteUsers.cs" />
     <Compile Include="Models\Vehiclefeatures.cs" />

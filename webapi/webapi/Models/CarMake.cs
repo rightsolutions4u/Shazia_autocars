@@ -13,6 +13,8 @@ namespace webapi.Models
         public string MakeId { get; set; }
         [StringLength(100)]
         public string MkDesc { get; set; }
-       
+        //Navigation property
+        public ICollection<CarModel> CarModel { get; set; }
+
     }
 }

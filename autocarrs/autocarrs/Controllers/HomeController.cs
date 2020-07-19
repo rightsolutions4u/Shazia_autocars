@@ -11,50 +11,29 @@ namespace autocarrs.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index1()
-        {
-            
-            //AutosVehicle autosVehicle = new AutosVehicle();
-            var client = new HttpClient();
-            var url = "https://localhost:44363/api/AutosVehicles/GetFeatuedAutos";
-
-            var response = await client.GetAsync(url);
-
-            var AutosFeatured = response.Content.ReadAsStringAsync().Result;
-            try
-            {
-                AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosFeatured);
-                ViewBag.AutosVehicle = a;
-                return View("Featured_cars", a);
-                //return View("LoadView", a);
-
-            }
-            catch
-            {
-
-            }
-
-            return View();
-        }
+        
         public async Task<ActionResult> Index()
         {
             try {
                 Load load = new Load();
+                //Load Features
                 var client = new HttpClient();
                 var url = "https://localhost:44363/api/AutosVehicles/GetFeatuedAutos";
-
                 var response = await client.GetAsync(url);
-
                 var AutosFeatured = response.Content.ReadAsStringAsync().Result;
-                
                 load.AutosVehicleF= JsonConvert.DeserializeObject<AutosVehicle[]>(AutosFeatured);
+                //CarMake
                 var client1 = new HttpClient();
                 var url1 = "https://localhost:44363/api/CarMakes/Getcarmake";
-
                 var response1 = await client1.GetAsync(url1);
-
                 var CarMakes = response1.Content.ReadAsStringAsync().Result;
                 load.CarMake = JsonConvert.DeserializeObject<CarMake[]>(CarMakes);
+                ////CarModel
+                //var clientModel = new HttpClient();
+                //var urlModel = "https://localhost:44363/api/CarModels/Getcarmodel";
+                //var responseModel = await client1.GetAsync(urlModel);
+                //var CarModels = responseModel.Content.ReadAsStringAsync().Result;
+                //load.CarModel = JsonConvert.DeserializeObject<CarModel[]>(CarModels);
                 return View("LoadView", load);
             }
             catch (Exception e)
