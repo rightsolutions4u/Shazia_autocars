@@ -31,7 +31,6 @@ C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfi
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.runtimeconfig.dev.json
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.dll
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\webapi.pdb
-C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cache
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.RazorAssemblyInfo.cs
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.AssemblyInfoInputs.cache
@@ -58,3 +57,4 @@ C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\appsettings.Develop
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\appsettings.json
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.genruntimeconfig.cache
+C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache

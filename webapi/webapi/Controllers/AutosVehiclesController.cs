@@ -56,11 +56,7 @@ namespace webapi.Controllers
                             .Include(a => a.CarCategory)
                             .Include(a => a.AutosFeatures)
                             .Include(a => a.AutosImages)
-                            //.Where(a => a.AutosImages.Any(f => f.AutosID == a.AutoId)
-                            //)
                             .ToListAsync();
-
-           
             return A;
 
         }
@@ -76,11 +72,7 @@ namespace webapi.Controllers
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
                             .Include(a => a.AutosFeatures)
-                            //.Include(a => a.AutosImages).Where(a => a.AutosImages.Any(f => f.AutoId == a.AutoId)
-                            //)
                             .ToListAsync();
-
-
             return A;
 
         }
@@ -121,10 +113,6 @@ namespace webapi.Controllers
         [HttpGet("SearchCarsBrands")]
         public async Task<ActionResult<IEnumerable<AutosVehicle>>> SearchCarsBrands(string Brand)
         {
-            
-            //return await _context.AutosVehicle.FromSql("GetAutosVehiclesBrands1) @whereclause",
-            //   new MySqlParameter("whereclause", Brand1)
-            //   ).ToListAsync();
             var A = await _context.AutosVehicle.Where(a => a.IsSold != 1
                                               && a.IsReserved != 1)
                                              .Include(a => a.CarBody)

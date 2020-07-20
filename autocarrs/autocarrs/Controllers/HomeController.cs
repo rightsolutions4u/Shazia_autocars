@@ -28,12 +28,6 @@ namespace autocarrs.Controllers
                 var response1 = await client1.GetAsync(url1);
                 var CarMakes = response1.Content.ReadAsStringAsync().Result;
                 load.CarMake = JsonConvert.DeserializeObject<CarMake[]>(CarMakes);
-                ////CarModel
-                //var clientModel = new HttpClient();
-                //var urlModel = "https://localhost:44363/api/CarModels/Getcarmodel";
-                //var responseModel = await client1.GetAsync(urlModel);
-                //var CarModels = responseModel.Content.ReadAsStringAsync().Result;
-                //load.CarModel = JsonConvert.DeserializeObject<CarModel[]>(CarModels);
                 return View("LoadView", load);
             }
             catch (Exception e)

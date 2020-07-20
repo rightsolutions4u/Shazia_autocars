@@ -23,10 +23,11 @@
                         <script>
                             function PopulateModels() {
                                 var MakeId = $('#MakeId').val();
-                                $.ajax({
+                                 $.ajax({
                                     url: 'https://localhost:44363/api/CarModels/GetcarmodelbyMake',
-                                    type: "POST",
-                                    dataType: "JSON",
+                                    type: "Get",
+                                    //contentType: "application/json; charset=utf-8",
+                                    //dataType: "json",
                                     data: { MakeID: MakeId },
                                     //success: function (CarModel) {
                                     //    //$("#Modlid").html("");  clear before appending new list
@@ -35,28 +36,29 @@
                                     //            $('<option></option>').val(Model.ModelId).html(Model.MdDesc));
                                     //    });
                                     //}
-                                    success: function (data) {
-                                        alert("data : "  + data);
+                                    success: function (CarModel) {
+                                        alert("CarModel : " + CarModel);
                                         var markup = "<option value='x'>Select Model</option>";
-                                        for (var x = 0; x < data.length; x++) {
-                                            markup += "<option value=" + data[x].value + ">" + data[x].text + "</option>";
+                                        for (var x = 0; x < CarModel.length; x++) {
+                                            markup += "<option value=" + CarModel[x].value + ">" + CarModel[x].text + "</option>";
                                         }
                                         $("#Modlid").html(markup).show();
                                     },
-                                    error: function (reponse) {
-                                        alert("error1 : " + reponse );
+                                    error:
+                                        //function (xhr, err, response) {
+
+                                        //    var responseTitle = $(xhr.responseText).filter('title').get(0);
+                                        //    alert($(responseTitle).text() + "\n" + formatErrorMessage(xhr, err));
+                                        //}
+                                        function (reponse, ) {
+                                           
+                                        alert("error : " + reponse.responseText);
                                     }
                                 });
                             }
                         </script>
                     </div>
-                    @*@if (Model is autocarrs.Models.CarMake)
-                        {
-                            Html.RenderPartial("RenderCarMake");
-
-                        }*@
-
-                    <div class="form-group col-md-3 col-sm-6 black_input" >
+                        <div class="form-group col-md-3 col-sm-6 black_input" >
                         <div class="select">
                             <select class="form-control" name="Modlid" id="Modlid">
                                @*<option value="x">Select Model</option>*@

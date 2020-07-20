@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webapi.Data;
 using webapi.Models;
+using Newtonsoft.Json;
+
 
 namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarModelsController : ControllerBase
+    public class CarModelsController : Controller
     {
         private readonly SiteContext _context;
 
@@ -21,26 +23,39 @@ namespace webapi.Controllers
             _context = context;
         }
 
-        // GET: api/CarModels
-        [HttpGet("GetcarmodelbyMake")]
-        public async Task<ActionResult<IEnumerable<CarModel>>> GetcarmodelbyMake(string MakeID)
+        //GET: api/CarModels
+       [HttpGet("GetcarmodelbyMake")]
+         public async Task<ActionResult<IEnumerable<CarModel>>> GetcarmodelbyMake(string MakeID)
         {
-            var A= await _context.carmodel.Where(e => e.MakeId == MakeID)
+            var A = await _context.carmodel.Where(e => e.MakeId == MakeID)
             .ToListAsync();
-            return (A);
+            return Json(null != A ? JsonConvert.SerializeObject(A) : "{'message':'no data found'}");
            
         }
-        //// GET: api/CarModels
-        //[HttpGet]
-        //public JsonResult Getcarmodelbymake(string MakeID)
-        //{
-        //    var A =  _context.carmodel.Where(e => e.MakeId == MakeID)
-        //    .ToList();
-        //    return Ok(A);
-                
-        //}
-        // GET: api/CarModels/5
-        [HttpGet("{id}")]
+
+        //GET: api/CarModels
+        [HttpGet("GetcarmodelbyMake2")]
+           public JsonResult GetcarmodelbyMake2(string MakeID)
+        {
+            var carModel = Getcarmodelbymake1(MakeID);
+            //return Json(carModel,/*new { data = carModel }*/);
+            var a = JsonConvert.SerializeObject(carModel);
+            return Json(null != a ? JsonConvert.SerializeObject(a) : "{'message':'no data found'}");
+
+        }
+        //GET: api/CarModels
+        [HttpGet("Getcarmodelbymake1")]
+        public async Task<ActionResult<IEnumerable<CarModel>>> Getcarmodelbymake1(string MakeID)
+        {
+            var A = await _context.carmodel.Where(e => e.MakeId == MakeID)
+            .ToListAsync();
+            var B = JsonConvert.SerializeObject(A);
+            var C= Json(B);
+            return C;
+            
+         }
+            // GET: api/CarModels/5
+            [HttpGet("{id}")]
         public async Task<ActionResult<CarModel>> GetCarModel(string id)
         {
             var carModel = await _context.carmodel.FindAsync(id);
