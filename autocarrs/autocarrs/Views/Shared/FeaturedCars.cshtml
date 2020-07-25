@@ -6,7 +6,8 @@
         {
             <div class="section-header text-center">
                 <h2>Your Search Results are based On following filters<span></span></h2>
-
+            </div>
+            <div class="row">
                 @foreach (var item in Model)
                 {
                     @*<div class="section-header text-left">*@
@@ -100,7 +101,7 @@
                     break;
            
                 } @* forloop *@
-                @*</div>*@
+                </div>
 
             <div class="row">
                 @foreach (var item in Model)
@@ -132,6 +133,6 @@
                     </div>
                 } @* for loop *@
             </div>
-            </div>
+            @*</div>*@
         } 
     </section>
