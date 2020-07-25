@@ -5624,3 +5624,14 @@ h5 {
     font-size:medium;
     color:blue;
 }
+/*By SM on Jul 24, 2020*/
+section Filter{
+	float: left;
+	margin: 0 1.5%;
+	width: 30%;
+}
+.offset {
+	left: 20px;
+	position: relative;
+	top: 20px;
+}

@@ -27,11 +27,14 @@ namespace webapi.Controllers
        [HttpGet("GetcarmodelbyMake")]
          public async Task<ActionResult<IEnumerable<CarModel>>> GetcarmodelbyMake(string MakeID)
         {
+           
             var A = await _context.carmodel.Where(e => e.MakeId == MakeID)
             .ToListAsync();
-            return Json(null != A ? JsonConvert.SerializeObject(A) : "{'message':'no data found'}");
-           
-        }
+            return Ok(A);
+            //below code converts Json data to string
+           // return Json(null != A ? JsonConvert.SerializeObject(A) : "{'message':'no data found'}");
+            //return A ; sends Json data object/array
+                 }
 
         //GET: api/CarModels
         [HttpGet("GetcarmodelbyMake2")]

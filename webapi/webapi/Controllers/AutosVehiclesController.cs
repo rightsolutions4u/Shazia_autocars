@@ -40,7 +40,6 @@ namespace webapi.Controllers
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
                             .Include(a => a.AutosImages)
-                            .Where(a => a.AutosImages.Any(f => f.AutoId == a.AutoId))
                             .ToListAsync();
             return autosVehicle;
         }
@@ -85,7 +84,7 @@ namespace webapi.Controllers
            var A= await _context.AutosVehicle.Where(a => a.IsSold != 1
                                  && a.IsReserved != 1
                                  && (input.MakeId.Contains("x") || a.MakeId == input.MakeId)
-                                 && (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
+                                 //&& (input.ModlId.Contains("x") || a.ModlId == input.ModlId)
                                  && (input.Acolor.Contains("x") || a.Acolor == input.Acolor)
                                  && (input.BodyId.Contains("x") || a.BodyId == input.BodyId)
                                  && (input.Engine.Contains("x") || a.Engine == input.Engine)
@@ -104,9 +103,8 @@ namespace webapi.Controllers
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
                             .Include(a => a.AutosFeatures)
-                            //.Where(a => a.AutosFeatures.Any(f =>  (ABS.Contains("x")||f.FEATID == ABS)
-                            //                                       && (fourwheel.Contains("x") || f.FEATID == fourwheel)
-                            //&&(f.AutoId==a.AutoId)))
+                            .Include(a => a.AutosImages)
+                          
                            .ToListAsync();
         return A;
         }

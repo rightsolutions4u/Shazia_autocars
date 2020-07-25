@@ -190,7 +190,7 @@
                 <div class="row">
                     <div class="col-md-7"></div>
                     <div class="col-md-5">
-                        <h2>@ViewBag.Search</h2>
+                       
         <<!--div class="banner_content">
             <h1>Find the right car for you.</h1>
             <p>We have more than a thousand cars for you to choose. </p>
@@ -202,22 +202,11 @@
         </div>
     </section>
     <!-- search Result -->
-    <section id="banner" class="banner-section">
+    @*<section id="banner" class="banner-section">
         <div class="container">
-            <div class="div_zindex">
-                <div class="row">
-                    <div class="col-md-7"></div>
-                    <!--<div class="col-md-5">
-                        <div class="banner_content">
-                            <h1>Find the right car for you.</h1>
-                            <p>We have more than a thousand cars for you to choose. </p>
-                            <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-                        </div>
-                    </div>-->
-                </div>
-            </div>
+            <h2>@ViewBag.FuelType</h2>
         </div>
-    </section>
+    </section>*@
     <!-- /search Result -->
     <!-- Filter-Form -->
     <!-- /Filter-Form -->
@@ -232,14 +221,11 @@
         <div class="container">
             <div>
                 @if (ViewBag.mystring is null)
-
                 {
                     Html.RenderPartial("FeaturedCars");
                 }
-
                 else
                 {
-
                     Html.RenderPartial("SearchByBrands");
                 }
             </div>

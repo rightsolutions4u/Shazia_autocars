@@ -46,16 +46,7 @@ namespace autocarrs.Controllers
                 ABS = "x";
                 qry = qry + "&ABS=" + ABS;
             }
-            var fourwheel = data["fourwheel"];
-            if (fourwheel != null)
-            {
-                qry = qry + "&fourwheel=" + data["fourwheel"];
-            }
-            else
-            {
-                fourwheel = "x";
-                qry = qry + "&fourwheel=" + fourwheel;
-            }
+            
 
             Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
             
@@ -71,10 +62,35 @@ namespace autocarrs.Controllers
                 var AutosSearch = response.Content.ReadAsStringAsync().Result;
                 AutosVehicle[] a = JsonConvert.DeserializeObject<AutosVehicle[]>(AutosSearch);
                 ViewBag.AutosVehicle = a;
-                ViewBag.Search = data;
+                ViewBag.MakeId = data["MakeId"];
+                ViewBag.ModlId = data["ModlId"];
+                ViewBag.BodyId = data["BodyId"];
+                ViewBag.AuYear = data["AuYear"];
+                ViewBag.Transmission = data["Transmission"];
+                ViewBag.SellPri = data["SellPri"];
+                ViewBag.FuelType = data["FuelType"];
+                ViewBag.from = data["from"];
+                ViewBag.to = data["to"];
+                ViewBag.fourbyfour = data["fourbyfour"];
+                ViewBag.vatdeduction = data["vatdeduction"];
+                ViewBag.FromMil = data["FromMil"];
+                ViewBag.ToMil = data["ToMil"];
+                ViewBag.PowerFrom = data["PowerFrom"];
+                ViewBag.PowerTo = data["PowerTo"];
+                ViewBag.FromYear = data["FromYear"];
+                ViewBag.ToYear = data["ToYear"];
+                ViewBag.PowerFrom = data["PowerFrom"];
+                ViewBag.PowerTo = data["PowerTo"];
+                ViewBag.Volume = data["Volume"];
+                ViewBag.Engine = data["Engine"];
+                ViewBag.Seater = data["Seater"];
+                ViewBag.Cosumption = data["Cosumption"];
+                ViewBag.NoOfDoors = data["NoOfDoors"];
+                ViewBag.Acolor = data["Acolor"];
+
                 return View("MainView", a);
             }
-            catch (Exception )
+             catch (Exception )
             {
                 Error err = new Error();
                 err.ErrorMessage = "Sorry we found no cars with these filters";
