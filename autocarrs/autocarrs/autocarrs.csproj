@@ -426,6 +426,7 @@
     <Content Include="Views\Shared\Featured_cars.cshtml" />
     <Content Include="Views\Shared\LoadView.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Shared\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,10 @@
 ﻿@using autocarrs.Models;
 @model Load
-
+    <script>
+        window.myCallback = function (data) {
+            alert(JSON.stringify(data));
+        };
+    </script>
 <!-- Filter-Form -->
 @if (Model != null)
 {
@@ -26,7 +30,7 @@
                                     var MakeId = $('#MakeId').val();
                                     $.ajax({
                                         url: 'https://localhost:44363/api/CarModels/GetcarmodelbyMake',
-                                        type: 'post',
+                                        type: 'GET',
                                         dataType: 'jsonp',
                                         data: { MakeID: MakeId },
                                         //success: function (CarModel) {

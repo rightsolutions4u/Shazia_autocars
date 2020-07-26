@@ -1,6 +1,15 @@
 ﻿@model IEnumerable<autocarrs.Models.AutosVehicle>
+<script>
+    function deleteButton(Id) {
+        document.getElementById(Id).style.display = "none";
 
-    <section id="filter">
+        $('#Choose').on('click', function () {
+            $('#chooseCar').submit();
+        });
+    }
+</script>
+<section id="filter">
+    @*<form action="~/AutosVehicle/Details" method="post" id="chooseCar">*@
         @if (Model != null)
 
         {
@@ -8,102 +17,138 @@
                 <h2>Your Search Results are based On following filters<span></span></h2>
             </div>
             <div class="row">
-                @foreach (var item in Model)
-                {
-                    @*<div class="section-header text-left">*@
-                    
-                <ul type="none">
-                @if (@ViewBag.FuelType != "x")
-                {
-                    <li><i aria-hidden="true"></i>@ViewBag.FuelType</li>
-                }
-                        @if (@ViewBag.Acolor != "x")
-                {
-                    <li><i aria-hidden="true"></i> {@ViewBag.Acolor}</li>
-                }
-                        @if (@ViewBag.MakeId != "x")
-                {
-                    <li><i aria-hidden="true"></i>{@item.CarMake.MkDesc}</li>
-                }
-                        @if (@ViewBag.ModlId != "x")
-                {
-                    <li><i aria-hidden="true"></i>@item.CarModel.MdDesc  </li>
-                }
-                        @if (@ViewBag.Transmission != "x")
-                {
-                    <li><i aria-hidden="true"></i>@ViewBag.Transmission  </li>
-                }
-                        @if (@ViewBag.AuYear != "0")
-                {
-                    <li><i aria-hidden="true"></i>@ViewBag.AuYear  </li>
-                }
-                        @if (@ViewBag.Cosumption != "0")
-                {
-                    <li><i aria-hidden="true"></i>@ViewBag.Cosumption  </li>
-                }
-                        @if (@ViewBag.from != "0")
-                {
-                    <li><i aria-hidden="true"></i>Price from: @ViewBag.from  </li>
-                }
-                        @if (@ViewBag.to != "0")
-                {
-                    <li><i aria-hidden="true"></i>Price to:@ViewBag.to  </li>
-                }
-                        @if (@ViewBag.Volume != "0")
-                {
-                    <li><i aria-hidden="true"></i>@ViewBag.Volume  </li>
-                }
-                        @if (@ViewBag.Powerfrom != "0")
-                {
-                    <li><i aria-hidden="true"></i>Power from: @ViewBag.Powerfrom  </li>
-                }
-                        @if (@ViewBag.Powerto != "0")
-                {
-                    <li><i aria-hidden="true"></i>Power to: @ViewBag.Powerto  </li>
-                }
-                        @if (@ViewBag.fromMil != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage from: @ViewBag.FromMil  </li>
-                }
-                        @if (@ViewBag.toMil != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.ToMil  </li>
-                }
-                        @if (@ViewBag.SellPri != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.SellPri  </li>
-                }
-                        @if (@ViewBag.SellPri != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.SellPri  </li>
-                }
-                        @if (@ViewBag.Engine != "x")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.Engine  </li>
-                }
-                        @if (@ViewBag.Seater != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.Seater  </li>
-                }
-                        @if (@ViewBag.NoOfDoors != "0")
-                {
-                    <li><i aria-hidden="true"></i>Mileage to: @ViewBag.NoOfDoors  </li>
-                }
-                        @if (@ViewBag.YearFrom != "0")
-                {
-                    <li><i aria-hidden="true"></i>Year from: @ViewBag.FromYear  </li>
-                }
-                        @if (@ViewBag.YearTo != "0")
-                {
-                    <li><i aria-hidden="true"></i>Year to: @ViewBag.ToYear  </li>
-                }
-              </ul>
-                    break;
-           
-                } @* forloop *@
-                </div>
+                <div class="form-group col-md-12 black_input">
 
+                    @foreach (var item in Model)
+                    {
+                        if (@ViewBag.FuelType != "x")
+                        {
+                            <button type="button" class="btn btn-primary" id="FuelType" onclick="deleteButton(" FuelType")">
+                                @ViewBag.FuelType <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Transmission != "x")
+                        {
+                            <button type="button" class="btn btn-primary" id="Transmission">
+                                @ViewBag.Transmission <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Acolor != "x")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Acolor <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.MakeId != "x")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @item.CarMake.MkDesc <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.ModlId != "x")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @item.CarModel.MdDesc <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.AuYear != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.AuYear <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Cosumption != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Cosumption <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.from != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.from <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.to != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.to <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Volume != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Volume <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Powerfrom != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Powerfrom <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Powerto != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Powerto <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.fromMil != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.fromMil <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.toMil != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.toMil <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.SellPri != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.SellPri <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Engine != "x")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Engine <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.Seater != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.Seater <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.NoOfDoors != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.NoOfDoors <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.YearFrom != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.YearFrom <span class="badge badge-light">x</span>
+                            </button>
+                        }
+                        if (@ViewBag.YearTo != "0")
+                        {
+                            <button type="button" class="btn btn-primary">
+                                @ViewBag.YearTo <span class="badge badge-light">x</span>
+                            </button>
+                        }
+
+                        break;
+
+                    } @* forloop *@
+                </div>
+            </div>
             <div class="row">
+
                 @foreach (var item in Model)
                 {
                     <div class="col-list-3">
@@ -127,12 +172,16 @@
                                     <li><i class="fa fa-user" aria-hidden="true"></i>@item.Seater seats</li>
                                     <li><i class="fa fa-superpowers" aria-hidden="true"></i>@item.Power kW</li>
                                 </ul>
+                               
                             </div>
-                            <input type="submit" value="Choose" id="Choose" class="login_btn" onclick="@Url.Action("Choose", "AutosVehicles")">
+                            @*<input type="button" name="Choose" value="Choose" id="Choose" class="login_btn">
+                            <input type="hidden" name="Choose" value="@ViewBag.AutoId">*@
+                            <input type="submit" name="Choose" value="Choose" class="login_btn" onclick="@Url.Action("Details", "AutosVehicles", new {id ="@ViewBag.AutoId" })">
                         </div>
                     </div>
                 } @* for loop *@
             </div>
-            @*</div>*@
-        } 
-    </section>
+
+        }
+    @*</form>*@
+</section>

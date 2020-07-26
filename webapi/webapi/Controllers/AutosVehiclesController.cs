@@ -40,6 +40,7 @@ namespace webapi.Controllers
                             .Include(a => a.CarModel)
                             .Include(a => a.CarCategory)
                             .Include(a => a.AutosImages)
+                            .Include(a => a.AutosFeatures)
                             .ToListAsync();
             return autosVehicle;
         }

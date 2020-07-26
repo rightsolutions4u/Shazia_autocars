@@ -40,11 +40,11 @@ namespace webapi.Controllers
         [HttpGet("GetcarmodelbyMake2")]
            public JsonResult GetcarmodelbyMake2(string MakeID)
         {
-            var carModel = Getcarmodelbymake1(MakeID);
+            Task<ActionResult<IEnumerable<CarModel>>> carModel = Getcarmodelbymake1(MakeID);
             //return Json(carModel,/*new { data = carModel }*/);
-            var a = JsonConvert.SerializeObject(carModel);
-            return Json(null != a ? JsonConvert.SerializeObject(a) : "{'message':'no data found'}");
-
+            //var a = JsonConvert.SerializeObject(carModel);
+            return Json(null != carModel ? JsonConvert.SerializeObject(carModel) : "{'message':'no data found'}");
+            
         }
         //GET: api/CarModels
         [HttpGet("Getcarmodelbymake1")]
@@ -52,9 +52,9 @@ namespace webapi.Controllers
         {
             var A = await _context.carmodel.Where(e => e.MakeId == MakeID)
             .ToListAsync();
-            var B = JsonConvert.SerializeObject(A);
-            var C= Json(B);
-            return C;
+            //var B = JsonConvert.SerializeObject(A);
+            //var C= Json(B);
+            return A;
             
          }
             // GET: api/CarModels/5

@@ -36,23 +36,10 @@ namespace autocarrs.Controllers
         public async Task<ActionResult> SearchCars(FormCollection data)
         {
             var qry = "PowerFrom=" + data["PowerFrom"] + "&PowerTo=" + data["PowerTo"] + "&FromMil=" + data["FromMil"] + "&ToMil=" + data["ToMil"];
-            var ABS = data["ABS"];
-            if (ABS!=null)
-            {
-                qry=qry+"&ABS=" + data["ABS"];
-            }
-            else
-            {
-                ABS = "x";
-                qry = qry + "&ABS=" + ABS;
-            }
-            
-
             Dictionary<string, string> form = data.AllKeys.ToDictionary(k => k, v => data[v]);
             
             AutosVehicle autosVehicle = new AutosVehicle();
             var myContent = JsonConvert.SerializeObject(form);
-
            try
             {
                 var data1 = new StringContent( myContent + qry,  Encoding.UTF8, "application/json");
@@ -178,6 +165,7 @@ namespace autocarrs.Controllers
             }
         }
         // GET: AutosVehicles/Details/5
+        [HttpPost]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
