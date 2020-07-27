@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\smali\\AAAutos\\webapi\\webapi\\webapi.csproj": {}
+    "F:\\Mars\\FreelanceWork\\faisal-butt - sialkot\\Shazia_autocars_new\\Shazia_autocars\\webapi\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\smali\\AAAutos\\webapi\\webapi\\webapi.csproj": {
+    "F:\\Mars\\FreelanceWork\\faisal-butt - sialkot\\Shazia_autocars_new\\Shazia_autocars\\webapi\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\smali\\AAAutos\\webapi\\webapi\\webapi.csproj",
+        "projectUniqueName": "F:\\Mars\\FreelanceWork\\faisal-butt - sialkot\\Shazia_autocars_new\\Shazia_autocars\\webapi\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "C:\\Users\\smali\\AAAutos\\webapi\\webapi\\webapi.csproj",
-        "packagesPath": "C:\\Users\\smali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\smali\\AAAutos\\webapi\\webapi\\obj\\",
+        "projectPath": "F:\\Mars\\FreelanceWork\\faisal-butt - sialkot\\Shazia_autocars_new\\Shazia_autocars\\webapi\\webapi\\webapi.csproj",
+        "packagesPath": "C:\\Users\\mars\\.nuget\\packages\\",
+        "outputPath": "F:\\Mars\\FreelanceWork\\faisal-butt - sialkot\\Shazia_autocars_new\\Shazia_autocars\\webapi\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\smali\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\mars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"

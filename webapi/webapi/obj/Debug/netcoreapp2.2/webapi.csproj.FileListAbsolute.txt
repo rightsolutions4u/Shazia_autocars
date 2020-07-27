@@ -58,3 +58,7 @@ C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\appsettings.json
 C:\Users\smali\AAAutos\webapi\webapi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.genruntimeconfig.cache
 C:\Users\smali\AAAutos\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.csproj.CoreCompileInputs.cache
+F:\Mars\FreelanceWork\faisal-butt - sialkot\Shazia_autocars_new\Shazia_autocars\webapi\webapi\bin\Debug\netcoreapp2.2\appsettings.Development.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\Shazia_autocars_new\Shazia_autocars\webapi\webapi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\Shazia_autocars_new\Shazia_autocars\webapi\webapi\bin\Debug\netcoreapp2.2\appsettings.json
+F:\Mars\FreelanceWork\faisal-butt - sialkot\Shazia_autocars_new\Shazia_autocars\webapi\webapi\obj\Debug\netcoreapp2.2\webapi.genruntimeconfig.cache

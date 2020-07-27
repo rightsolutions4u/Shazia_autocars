@@ -165,8 +165,8 @@ namespace autocarrs.Controllers
             }
         }
         // GET: AutosVehicles/Details/5
-        [HttpPost]
-        public async Task<ActionResult> Details(int? id)
+        [HttpGet]
+        public async Task<ActionResult> Details1(int? id)
         {
             if (id == null)
             {
